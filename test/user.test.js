@@ -11,7 +11,7 @@ pathUrl = 'http://localhost:3000/'
 const dataStore = {
   userId: null
 }
-describe.skip("Validate User Api test", ()=> {
+describe("Validate User Api test", ()=> {
   // A "canary" test is one we set up to always pass
   // This can help us ensure our testing suite is set up correctly before writing real tests
   it(" should create new User", () => chai.request(pathUrl)

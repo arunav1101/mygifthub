@@ -12,7 +12,7 @@ const dataStore = {
   userId: null,
   listId:null
 }
-describe.skip("Validate list Api test", () => {
+describe("Validate list Api test", () => {
   it("should create new user", () => chai.request(pathUrl)
     .post('api/users')
     .send({
