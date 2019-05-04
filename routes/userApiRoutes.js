@@ -28,7 +28,7 @@ module.exports = function (app) {
         emailAddress: req.body.emailAddress,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        profileFolder: req.body.profileFolder
+        photo: req.body.photo
       }).then(function (results) {
         // We have access to the new todo as an argument inside of the callback function
         res.json(results);

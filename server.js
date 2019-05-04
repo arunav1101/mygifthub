@@ -34,16 +34,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 const authRoutes = require('./routes/authRoutes');
 // Routes
-<<<<<<< HEAD
 require("./routes/listApiRoutes")(app);
 require("./routes/listItemsApiRoutes")(app);
 require("./routes/userApiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-=======
 app.use('/auth', authRoutes);
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
->>>>>>> master
 
 let syncOptions = { force: false };
 
