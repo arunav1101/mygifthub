@@ -9,7 +9,7 @@ cache:
 before_script:
   - npm install
 script:
-  - node start
+  - npm start
   - npm test
 before_install:
   - mysql -e 'CREATE DATABASE gifthub_db;'
