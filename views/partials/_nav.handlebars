@@ -1,19 +1,42 @@
-<div class="row">
-  <nav class="navbar fixed-top navbar-expand-lg">
-    <a class="navbar-brand" href="#">mygifthub.com</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+{{!-- <div class="row nav-row"> --}}
+<nav class="navbar fixed-top navbar-expand-lg">
+  <div class="box-left">
+    <a class="navbar-brand" href="#">mygifthub.<span class="com"></span>com</a>
+  </div>
+
+  <div class="box-middle">
+
+    {{!-- <div class="search-container"> --}}
+
+    <button class="navbar-toggler search-force-display" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+
+      <form class="form-inline my-2 my-lg-0 search-form">
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="FIND A REGISTRY"
+          aria-label="Search" name="search"><i class="fas fa-search nav-search"></i>
+
+      </form>
     </button>
 
-    <div class="search-container">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </form>
-    </div>
+    {{!-- </div> --}}
+  </div>
 
-   <button type="button" class="btn btn-outline-primary">Primary</button>
-   <button type="button" class="btn btn-outline-primary">Primary</button>
-  </nav>
-</div>
+  <div class="box-right">
+    <button type="button" class="btn btn-outline-primary btn-sign-up">Sign Up</button>
+
+    <button type="button" class="btn btn-outline-primary btn-log-in">Log In</button>
+  </div>
+  </div>
+</nav>
+
+<script>
+
+  $('.form-control').on('click', function () {
+    $(this).attr('placeholder', 'Find First and Last Name');
+    //$(this).css('background-color', '#777D7F');
+    $(this).addClass('active');
+
+  });
+</script>
+{{!-- </div> --}}

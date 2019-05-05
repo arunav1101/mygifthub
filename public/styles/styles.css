@@ -1,5 +1,31 @@
 /*-----------------------------------------------------------------*/
 
+/* COLORS*/
+
+/*-----------------------------------------------------------------*/
+
+.Registry-1-hex {
+  color: #777D7F;
+}
+
+.Registry-2-hex {
+  color: #516F7F;
+}
+
+.Registry-3-hex {
+  color: #A2DEFF;
+}
+
+.Registry-4-hex {
+  color: #FDFFFF;
+}
+
+.Registry-5-hex {
+  color: #BEC7CC;
+}
+
+/*-----------------------------------------------------------------*/
+
 /* BASIC SETUP*/
 
 /*-----------------------------------------------------------------*/
@@ -76,7 +102,7 @@ h2:after {
   /*puts content on site using only css*/
   display: block;
   height: 2px;
-  background-color: #e67e22;
+  background-color: #fff;
   content: " ";
   width: 100px;
   /* for centering */
@@ -89,7 +115,14 @@ h3 {
   margin-bottom: 15px;
 }
 
+/*-----------------------------------------------------------------*/
+
+/* NAV BAR */
+
+/*-----------------------------------------------------------------*/
+
 nav {
+<<<<<<< HEAD
   background:#A3CB38;
 }
 
@@ -106,3 +139,125 @@ nav {
 #listBox h2{
   color: black;
 }
+=======
+  background-color: #777D7F;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.navbar-brand {
+  color: #A2DEFF;
+  font-size: 2em;
+}
+
+.navbar-brand:hover {
+  color: #516F7F;
+}
+
+/*-----NAVBAR SECTIONS-----*/
+
+/*-----brand-----*/
+
+.navbar-brand {
+  color: #A2DEFF;
+  font-size: 2em;
+}
+
+.navbar-brand:hover {
+  color: #516F7F;
+  transition: color 300ms;
+}
+
+/*-----Search----*/
+
+.search-force-display {
+  display: inline-block !important;
+  width: 50%;
+  color: #A2DEFF;
+}
+
+.form-control {
+  width: 100% !important;
+  background-color: #777D7F;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #A2DEFF;
+}
+
+.search-form {
+  position: relative;
+}
+
+input::placeholder {
+  color: #A2DEFF !important;
+}
+
+.nav-search {
+  position: absolute;
+  right: 20px;
+  color: #A2DEFF;
+}
+
+.box-left {
+  display: block;
+  vertical-align: top;
+  margin-right: 20px;
+  /* width: 25%; */
+}
+
+.box-middle {
+  text-align: center;
+  display: block;
+  vertical-align: top;
+  width: 50%;
+  margin: 0 20px 0 0;
+}
+
+.box-right {
+  display: flex;
+  justify-content: flex-end;
+  vertical-align: top;
+  margin-right: 20px;
+  /* width: 25%; */
+}
+
+/*-----BUTTONS-----*/
+
+.btn {
+  color: #A2DEFF;
+  display: inline-block;
+  font-weight: 400;
+  padding: 10px 30px;
+  transition: background-color 300ms, border 300ms, color 300ms;
+}
+
+.btn-sign-up {
+  background-color: #777D7F;
+  border: 1px solid #777D7F;
+  color: #A2DEFF;
+  margin-right: 15px;
+}
+
+.btn-log-in {
+  background-color: #A2DEFF;
+  border: 1px solid #A2DEFF;
+  color: #516F7F;
+}
+
+.btn:hover, .btn:active {
+  background-color: #516F7F;
+  border-color: #516F7F;
+  /*border: inherit;*/
+}
+
+#search-input {
+  background-color: #777D7F;
+  outline-width: 0!important;
+}
+
+#search-input:focus {
+  box-shadow: none;
+}
+>>>>>>> master
