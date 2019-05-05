@@ -22,8 +22,8 @@
 =======
   "development": {
     "username": "root",
-    "password": null,
-    "database": "gifthub_db",
+    "password": "MyPassword",
+    "database": "mygifthub_db",
     "host": "localhost",
     "dialect": "mysql"
   },

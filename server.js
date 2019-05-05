@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
 
+
 // Handlebars
 app.engine(
 	'handlebars',
@@ -33,14 +34,23 @@ require('./passport/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 const authRoutes = require('./routes/authRoutes');
+app.use('/auth', authRoutes);
+//Declare Global Variables
+app.use((req,resp,next) => {
+	resp.locals.user = req.user || null;
+	next();
+});
 // Routes
 require("./routes/listApiRoutes")(app);
 require("./routes/listItemsApiRoutes")(app);
 require("./routes/userApiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-app.use('/auth', authRoutes);
 
-let syncOptions = { force: false };
+
+
+
+
+let syncOptions = { force: false, alter :false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
