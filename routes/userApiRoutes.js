@@ -12,10 +12,11 @@ module.exports = function (app) {
   });
 
   app.get("/api/users/:id", function (req, res) {
-    db.User.findOne({
+    db.Users.findOne({
       where: {
-        id: req.params.id
-      }
+        GoogleID: req.params.id
+      },
+      include: [Lists],
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);

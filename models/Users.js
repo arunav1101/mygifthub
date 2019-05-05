@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define('User', {
+  var User = sequelize.define('Users', {
     // Giving the User model a name of type STRING
     GoogleID: {
       type: DataTypes.STRING,
@@ -24,7 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1]
       }

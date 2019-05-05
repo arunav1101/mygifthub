@@ -6,6 +6,11 @@ module.exports = function(app) {
     res.render("index");
   });
 
+    // Load dashboard page
+    app.get("/dashboard", function(req, res) {
+      res.render("users/dashboard");
+    });
+
   // Load register page
   app.get("/register", function(req, res) {
     res.render("users/register");

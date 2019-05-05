@@ -15,7 +15,7 @@ route.get(
 	}),
 	function(req, resp) {
 		console.log(req.user);
-		resp.redirect('/');
+		resp.redirect('/dashboard');
 	}
 );
 
@@ -25,6 +25,11 @@ route.get('/verify', (req, res) => {
 	} else {
 		console.log('not auth');
 	}
+});
+
+route.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/');
 });
 
 module.exports = route;
