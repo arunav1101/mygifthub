@@ -122,6 +122,24 @@ h3 {
 /*-----------------------------------------------------------------*/
 
 nav {
+<<<<<<< HEAD
+  background:#A3CB38;
+}
+
+/*-----------------------------------------------------------------*/
+
+/* Shared lists pages */
+
+/*-----------------------------------------------------------------*/
+
+#listBox{
+  height: 600px;
+  margin-top: 8%;
+}
+#listBox h2{
+  color: black;
+}
+=======
   background-color: #777D7F;
   display: flex !important;
   justify-content: space-between !important;
@@ -242,3 +260,4 @@ input::placeholder {
 #search-input:focus {
   box-shadow: none;
 }
+>>>>>>> master

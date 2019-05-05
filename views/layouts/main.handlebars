@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  {{!-- <script src="/public/js/index.js"></script> --}}
+
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/grid.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
@@ -15,13 +18,13 @@
 
 <body>
 
-      {{> _nav}}
-      <main>
+  {{> _nav}}
+  <main>
     <div class="container">
       {{{body}}}
     </div>
-    </main>
-      {{> _footer}}
+  </main>
+  {{> _footer}}
 
 
 
