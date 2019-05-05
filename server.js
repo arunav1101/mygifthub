@@ -50,7 +50,7 @@ require("./routes/htmlRoutes")(app);
 
 
 
-let syncOptions = { force: false };
+let syncOptions = { force: false, alter :false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

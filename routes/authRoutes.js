@@ -14,14 +14,14 @@ route.get(
 		failureRedirect: '/'
 	}),
 	function(req, resp) {
-		console.log(req.user);
+		// console.log(req.user);
 		resp.redirect('/dashboard');
 	}
 );
 
 route.get('/verify', (req, res) => {
 	if (req.user) {
-		console.log(req.user);
+		// console.log(req.user);
 	} else {
 		console.log('not auth');
 	}

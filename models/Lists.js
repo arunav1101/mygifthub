@@ -13,13 +13,17 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    UserId: {
+      type: DataTypes.INTEGER(225),
+
     }
   });
 
   Lists.associate = function(models) {
     // We're saying that a Lists should belong to an Author
     // A Lists can't be created without an Author due to the foreign key constraint
-    Lists.belongsTo(models.Users, {
+    Lists.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }

@@ -6,28 +6,25 @@ module.exports = function(app) {
     res.render("index");
   });
 
-    // Load dashboard page
-    app.get("/dashboard", function(req, res) {
-      res.render("users/dashboard");
+    // Load dashboard page *** HOANG LE ***
+    app.get("/dashboard", function(req, resp) {
+      // console.log(req.user.GoogleID)
+      db.User.findAll({
+        where:{
+          GoogleID:req.user.GoogleID,
+        },
+      })
+      .then(res => {
+        
+        resp.render("users/dashboard", {
+          userPortfolio:res[0].dataValues,
+        });
+      }).catch(err => console.log(err));
     });
-
-  // Load register page
-  app.get("/register", function(req, res) {
-    res.render("users/register");
-  });
 
   // Load registry list page
   app.get("/registryList", function(req, res) {
     res.render("registry/registryList");
-  });
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
   });
 
   // Render 404 page for any unmatched routes

@@ -24,10 +24,10 @@ module.exports = function(passport) {
 						}
 					})
 					.then((user) => {
-						console.log(user);
+						// console.log(user);
 						if (user[0]) {
 							//return USER
-							done(null, user);
+							done(null, newUser);
 						} else {
 							db.User.create(newUser).then((user) => {
 								done(null, user);
