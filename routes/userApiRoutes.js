@@ -13,10 +13,18 @@ module.exports = function (app) {
 
   app.get("/api/users/:id", function (req, res) {
     db.User.findOne({
-      where: {
-        GoogleID: req.params.id
+      include: [{
+        model:db.Lists,
+        where: {
+          id: req.params.id
+        }
       },
-      include: [db.Lists],
+    {
+      model:db.Shared,
+      where: {
+        sharedTo: req.params.id
+      }
+    }]
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);

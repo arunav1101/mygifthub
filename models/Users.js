@@ -44,6 +44,13 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Lists, {
       onDelete: 'CASCADE'
     });
+
+    User.hasMany(models.Shared,{
+      foreignKey:'sharedTo',
+      onDelete: "cascade",
+      foreignKeyConstraint:true
+    });
+
   };
 
   return User;
