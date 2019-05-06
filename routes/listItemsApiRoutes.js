@@ -12,7 +12,7 @@ module.exports = function (app) {
   });
 
   // Create a new example
-  app.post("/api/listItems/:listId", function (req, res) {
+  app.post("/api/listItems/:listId", function(req, res) {
     db.ListItems.create({
         title: req.body.title,
         url: req.body.url,
@@ -20,11 +20,11 @@ module.exports = function (app) {
         price: req.body.price,
         notes: req.body.notes,
         ListId: req.params.listId
-      }).then(function (results) {
+      }).then(function(results) {
         // We have access to the new todo as an argument inside of the callback function
         res.json(results);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);

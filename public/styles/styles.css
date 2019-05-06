@@ -37,8 +37,8 @@
 }
 
 html {
-  background-color: #fff;
-  color: #555;
+  background-color: #555;
+  color: #fff;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -84,7 +84,7 @@ h1, h2, h3 {
 
 h1 {
   margin: 0 0 20px 0;
-  color: #fff;
+  color: #516F7F;
   font-size: 300%;
   word-spacing: 4px;
   letter-spacing: 1px;
@@ -132,7 +132,7 @@ h3 {
 
 /*-----------------------------------------------------------------*/
 
-nav {
+#navBar {
   background-color: #777D7F;
   display: flex !important;
   justify-content: space-between !important;
@@ -142,6 +142,10 @@ nav {
 .navbar-brand {
   color: #A2DEFF;
   font-size: 2em;
+}
+
+span {
+  font-size: 1rem
 }
 
 .navbar-brand:hover {
@@ -170,7 +174,7 @@ nav {
   color: #A2DEFF;
 }
 
-.form-control {
+#search-input {
   width: 100% !important;
   background-color: #777D7F;
   border-radius: 0;
@@ -178,13 +182,14 @@ nav {
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #A2DEFF;
+  outline-width: 0!important;
 }
 
 .search-form {
   position: relative;
 }
 
-input::placeholder {
+#search-input::placeholder {
   color: #A2DEFF !important;
 }
 
@@ -246,15 +251,23 @@ input::placeholder {
   /*border: inherit;*/
 }
 
-#search-input {
-  background-color: #777D7F;
-  outline-width: 0!important;
-}
+
 
 #search-input:focus {
   box-shadow: none;
 }
 
+
+/*-----------------------------------------------------------------*/
+
+/* SITE INTRO */
+
+/*-----------------------------------------------------------------*/
+
+
+.line1, .line2 {
+  color: #555;
+}
 /*-----------------------------------------------------------------*/
 /*-----------------------------------------------------------------*/
 

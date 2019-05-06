@@ -3,16 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  {{!-- <script src="/public/js/index.js"></script> --}}
-
-  <link rel="stylesheet" href="styles/normalize.css">
-  <link rel="stylesheet" href="styles/grid.css">
+  <link rel="stylesheet" href="/public/styles/normalize.css">
+  <link rel="stylesheet" href="/public/styles/grid.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="/public/styles/styles.css" type="text/css">
   <title>Home Page</title>
 </head>
 
@@ -38,14 +35,12 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <script>
-    $('.form-control').on('click', function () {
+    $('#search-input').on('click', function () {
       $(this).attr('placeholder', 'Find First and Last Name');
-      //$(this).css('background-color', '#777D7F');
       $(this).addClass('active');
 
     });
   </script>
-  <script src="/js/index.js"></script>
 
 </body>
 
