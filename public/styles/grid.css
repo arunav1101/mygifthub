@@ -13,12 +13,12 @@
     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
 }
 
-.row:before,
-.row:after {
+.row::before,
+.row::after {
     content:"";
     display:table;
 }
-.row:after {
+.row::after {
     clear:both;
 }
 

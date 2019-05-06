@@ -13,7 +13,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/list/:id", function (req, res) {
+  app.get("/api/list/:id", function(req, res) {
     db.Lists.findOne({
       where: {
         id: req.params.id
@@ -26,7 +26,7 @@ module.exports = function (app) {
   });
 
   // Create a new example
-  app.post("/api/list/:userId", function (req, res) {
+  app.post("/api/list/:userId", function(req, res) {
     db.Lists.create({
         ListName: req.body.ListName,
         GoogleID: req.body.GoogleID,
