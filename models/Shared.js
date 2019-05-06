@@ -25,10 +25,11 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   Shared.associate = function(models) {
-    Shared.hasMany(models.Lists, {
-      onDelete: "cascade"
+    Shared.belongsTo(models.Lists, {
+      foreignKey:'id',
+      onDelete: "cascade",
+      foreignKeyConstraint:true
     });
   };
-
   return Shared;
 };

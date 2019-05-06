@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(225),
 
     }
+
   });
 
   Lists.associate = function(models) {
@@ -31,12 +32,15 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   Lists.associate = function(models) {
-    // Associating User with Listss
-    // When an User is deleted, also delete any associated Listss
     Lists.hasMany(models.ListItems, {
       onDelete: "cascade"
     });
-  };
+    Lists.hasMany(models.Shared,{
+      foreignKey:'ListId',
+      onDelete: "cascade",
+      foreignKeyConstraint:true
+    });
+    }
 
   return Lists;
 };
