@@ -25,6 +25,17 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/list/shared/:id", function(req, res) {
+    db.Lists.findAll({
+      // include:[db.Lists],
+      where: { id: req.params.id }, 
+      include : [db.Shared]
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+
   // Create a new example
   app.post("/api/list/:userId", function(req, res) {
     db.Lists.create({
@@ -32,12 +43,9 @@ module.exports = function (app) {
         GoogleID: req.body.GoogleID,
         UserId:req.params.userId
       }).then(function (results) {
-        // We have access to the new todo as an argument inside of the callback function
         res.json(results);
       })
       .catch(function (err) {
-        // Whenever a validation or flag fails, an error is thrown
-        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);
       });
   });
@@ -54,8 +62,6 @@ module.exports = function (app) {
   });
 
   app.put("/api/list/:id", function (req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
     db.Lists.update({
       ListName: req.body.ListName
     }, {
@@ -65,8 +71,6 @@ module.exports = function (app) {
     }).then(function (results) {
       res.sendStatus(200);
     }).catch(function (err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
     });
   });

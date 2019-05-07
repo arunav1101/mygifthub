@@ -10,6 +10,3 @@ before_script:
   - npm install
 script:
   - npm start
-  - npm test
-before_install:
-  - mysql -e 'CREATE DATABASE gifthub_db;'
