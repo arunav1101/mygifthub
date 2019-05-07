@@ -16,12 +16,14 @@ module.exports = function (app) {
       include: [
         {
           model: db.Lists,
+          required: false,
           where: {
             UserId: req.params.id
           }
         },
         {
           model: db.Shared,
+          required: false,
           where: {
             sharedTo: req.params.id
           }

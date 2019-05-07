@@ -6,7 +6,8 @@ module.exports = function (app) {
   /// Api's for list
   app.get("/api/list", function (req, res) {
     db.Lists.findAll({
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
@@ -18,7 +19,8 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
