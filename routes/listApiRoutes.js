@@ -13,7 +13,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/list/:id", function(req, res) {
+  app.get("/api/list/:id", function (req, res) {
     db.Lists.findOne({
       where: {
         id: req.params.id
@@ -25,11 +25,13 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/list/shared/:id", function(req, res) {
+  app.get("/api/list/shared/:id", function (req, res) {
     db.Lists.findAll({
       // include:[db.Lists],
-      where: { id: req.params.id }, 
-      include : [db.Shared]
+      where: {
+        id: req.params.id
+      },
+      include: [db.Shared]
     }).then(function (results) {
       res.json(results);
     });
@@ -37,11 +39,11 @@ module.exports = function (app) {
 
 
   // Create a new example
-  app.post("/api/list/:userId", function(req, res) {
+  app.post("/api/list/:userId", function (req, res) {
     db.Lists.create({
         ListName: req.body.ListName,
         GoogleID: req.body.GoogleID,
-        UserId:req.params.userId
+        UserId: req.params.userId
       }).then(function (results) {
         res.json(results);
       })
