@@ -29,15 +29,15 @@ describe("Validate User Api test", ()=> {
   );
 
 
-  it("shoudl get new user details", () => chai.request(pathUrl)
+  it("should get new user details", () => chai.request(pathUrl)
     .get(`api/users/${dataStore.userId}`)
     .then((res) => {
       expect(res).status(200);
-      expect(res.body.GoogleID).to.equal('test');
-      expect(res.body.emailAddress).to.equal('a@a.com');
-      expect(res.body.firstName).to.equal('test');
-      expect(res.body.lastName).to.equal('test');
-      expect(res.body.photo).to.equal('test');
+      expect(res.body[0].GoogleID).to.equal('test');
+      expect(res.body[0].emailAddress).to.equal('a@a.com');
+      expect(res.body[0].firstName).to.equal('test');
+      expect(res.body[0].lastName).to.equal('test');
+      expect(res.body[0].photo).to.equal('test');
     })
   )
 

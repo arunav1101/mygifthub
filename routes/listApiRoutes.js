@@ -33,7 +33,8 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [db.Shared]
+      include: [db.Shared],
+      required: false
     }).then(function (results) {
       res.json(results);
     });

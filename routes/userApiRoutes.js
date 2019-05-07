@@ -12,9 +12,12 @@ module.exports = function (app) {
   });
 
   app.get("/api/users/:id", function (req, res) {
-    db.User.findOne({
-      include: [
-        {
+    db.User.findAll({
+      limit: 1,
+      where: {
+        id: req.params.id
+      },
+      include: [{
           model: db.Lists,
           required: false,
           where: {

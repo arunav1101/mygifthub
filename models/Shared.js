@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     sharedTo: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER(225),
       allowNull: false,
       validate: {
         len: [1]
