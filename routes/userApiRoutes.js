@@ -17,7 +17,7 @@ module.exports = function (app) {
         {
           model: db.Lists,
           where: {
-            id: req.params.id
+            UserId: req.params.id
           }
         },
         {

@@ -16,7 +16,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     UserId: {
       type: DataTypes.INTEGER(225),
-
+      validate: {
+        len: [1]
+      }
     }
 
   });
@@ -38,8 +40,7 @@ module.exports = function (sequelize, DataTypes) {
 
     Lists.hasMany(models.Shared, {
       foreignKey: "ListId",
-      onDelete: "cascade",
-      foreignKeyConstraint: true
+      onDelete: "cascade"
     });
   };
   return Lists;
