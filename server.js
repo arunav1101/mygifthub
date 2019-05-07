@@ -41,12 +41,13 @@ app.use((req,resp,next) => {
 	resp.locals.user = req.user || null;
 	next();
 });
+
 // Routes
 require("./routes/listApiRoutes")(app);
 require("./routes/listItemsApiRoutes")(app);
 require("./routes/userApiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-
+require("./routes/sharedApiRoute")(app);
 
 
 
