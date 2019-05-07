@@ -38,9 +38,9 @@ module.exports = function (sequelize, DataTypes) {
 
     Lists.hasMany(models.Shared, {
       foreignKey: "ListId",
-      onDelete: "cascade"
+      onDelete: "cascade",
+      foreignKeyConstraint: true
     });
   };
-
   return Lists;
 };
