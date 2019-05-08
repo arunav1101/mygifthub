@@ -23,17 +23,5 @@ module.exports = function(sequelize, DataTypes) {
 		});
 	};
 
-<<<<<<< HEAD
-  Shared.associate = function (models) {
-    Shared.belongsTo(models.Lists, {
-      foreignKey: "ListId",
-      onDelete: "cascade"
-    });
-  }; 
-
-  return Shared;
-};
-=======
 	return Shared;
 };
->>>>>>> editList
