@@ -1,7 +1,5 @@
 /*-----------------------------------------------------------------*/
-
 /* COLORS*/
-
 /*-----------------------------------------------------------------*/
 
 .Registry-1-hex {
@@ -25,9 +23,7 @@
 }
 
 /*-----------------------------------------------------------------*/
-
 /* BASIC SETUP*/
-
 /*-----------------------------------------------------------------*/
 
 * {
@@ -37,8 +33,8 @@
 }
 
 html {
-  background-color: #555;
-  color: #fff;
+  background-color:#fff;
+  color:  #555;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -54,9 +50,7 @@ html {
 }
 
 /*-----------------------------------------------------------------*/
-
 /* GLOBAL COMPONENTS */
-
 /*-----------------------------------------------------------------*/
 
 .row {
@@ -116,32 +110,34 @@ h3 {
 }
 
 /*-----------------------------------------------------------------*/
-
+/*-----------------------------------------------------------------*/
+/* KOFI's CSS
+/*-----------------------------------------------------------------*/
 /*-----------------------------------------------------------------*/
 
+
+/*-----------------------------------------------------------------*/
+/*-----------------------------------------------------------------*/
 /* TRAV's CSS
-
+/*-----------------------------------------------------------------*/
 /*-----------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------*/
-
-/*-----------------------------------------------------------------*/
-
 /* JUMBOTRON
-
 /*-----------------------------------------------------------------*/
 
 .jumbotron {
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.), rgba(0, 0, 0, 0.2)), url(../images/images.jfif); */
-  background-color: #777D7F;
+  background-color: #A2DEFF;
   display: flex;
   border-radius: 0;
   padding-top: 5px;
   justify-content: center;
   height: 160px;
+  margin-bottom: 0;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 1px solid #555;
+  /* border-bottom: 1px solid #516F7F; */
 }
 
 .jumbotron-h1, .jumbotron-p {
@@ -153,33 +149,51 @@ h3 {
 }
 
 .jumbotron-h1 {
-  color: #A2DEFF;
+  color: #212529;
 
 }
 
 /*-----------------------------------------------------------------*/
-
 /* NAV BAR */
-
 /*-----------------------------------------------------------------*/
 
 #navBar {
-  background-color: #777D7F;
+  background-color: #A2DEFF;
 }
 
 /*-----NAVBAR SECTIONS-----*/
 
 /*-----logo & brand-----*/
 
-.navbar-logo {
-  font-size: 2.5rem;
-  margin-left: 1rem;
+navbar-logo {
+  
+  margin-left: 1.5rem;
   margin-right: .5rem;
+  margin-bottom: .2rem;
 }
 
+img.box-logo {
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+}
+.navbar-brand {
+  color:  #777D7F;
+  margin-left: 2rem;
+}
+
+.logo-text {
+  font-size: 2rem;
+}
 .com {
   font-size: 1.25rem;
+  
 }
+
+.navbar-brand:hover {
+  color: #007bff;
+  transition: all 750ms ease-in-out;
+} 
+
 .box-logo:hover {
   animation: shake 600ms infinite;
 }
@@ -201,15 +215,26 @@ h3 {
     transform: translate(-1px, 1px) rotate(-1deg);
   }
 }
-.navbar-brand {
-  color: #A2DEFF;
-  font-size: 2rem;
+
+/*-----logo & brand For inline text-----*/
+
+
+.logo-text-small {
+  font-size: 1.25rem;
+  padding-left: .15rem;
+  color: #007bff;
+  text-decoration: none;
+}
+.com-small {
+  font-size: .9rem;
+  color: #007bff;
+  text-decoration: none;
 }
 
-.navbar-brand:hover {
-  color: #A2DEFF;
-}
 
+ a.body-brand-small:hover {
+  text-decoration: none;
+}
 /*-----Search----*/
 
 .box-middle {
@@ -222,7 +247,7 @@ h3 {
 .search-force-display {
   display: inline-block !important;
   width: 50%;
-  color: #A2DEFF;
+  color:  #777D7F;
 }
 
 .search-form {
@@ -230,17 +255,17 @@ h3 {
 }
 
 #search-input::placeholder {
-  color: #A2DEFF !important;
+  color:  #777D7F !important;
 }
 
 #search-input {
   width: 100% !important;
-  background-color: #777D7F;
+  background-color: #A2DEFF;
   border-radius: 0;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid #A2DEFF;
+  border-bottom: 1px solid #777D7F;
   outline-width: 0!important;
 }
 
@@ -251,15 +276,15 @@ h3 {
 .nav-search {
   position: absolute;
   right: 20px;
-  color: #A2DEFF;
+  color: #777D7F;
 }
 
 /*-----Buttons-----*/
 
 .btn-log-in, .btn-log-out {
   font-size: 1.25rem;
-  background-color: #777D7F;
-  color: #A2DEFF;
+  background-color: #A2DEFF;
+  color: #777D7F;
   font-weight: 400;
   margin-right: 15px;
   padding: 5px 30px;
@@ -274,9 +299,9 @@ h3 {
 .btn-log-in:hover, .btn-log-out:hover {
   font-size: 1.rem;
   background-position: 100% 0;
-  background: #A2DEFF;
+  background: #516F7F;
   background: linear-gradient(to right, #A2DEFF, #516F7F);
-  color: rgb(16, 76, 240);
+  color: #555;
   outline: none;
   box-shadow: none;
   transition: all 400ms ease-in-out;
@@ -289,10 +314,29 @@ h3 {
 }
 /*-----------------------------------------------------------------*/
 /* SITE INTRO */
-
 /*-----------------------------------------------------------------*/
-
+.into {
+  width: 100%;
+}
 .line1, .line2 {
+  
   color: #555;
 }
 
+/*-----------------------------------------------------------------*/
+/* EVENTS SHOWCASE */
+/*-----------------------------------------------------------------*/
+
+.events-showcase {
+  list-style: none;
+  background-size: contain;
+  width: 100vw;
+}
+
+.events-showcase li {
+  display: flex;
+  justify-content: stretch;
+  width: 25%;
+  list-style: none;
+
+}
