@@ -16,12 +16,12 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	});
 
-	// Shared.associate = function (models) {
-	//   Shared.belongsTo(models.Lists, {
-	//     foreignKey: "ListId",
-	//     onDelete: "cascade"
-	//   });
-	// };
+	Shared.associate = function(models) {
+		Shared.belongsTo(models.Lists, {
+			foreignKey: 'ListId',
+			onDelete: 'cascade'
+		});
+	};
 
 	return Shared;
 };
