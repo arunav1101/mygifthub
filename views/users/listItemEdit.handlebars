@@ -1,13 +1,15 @@
+<div class="container">
 {{#if list}}
 <div>
-  <h1>Edit Your {{list.title}} List</h1>
+  <h1 class="text-center font-weight-bold">Edit Your {{list.title}} List</h1>
 </div>
-
+<form action="/api/listItems/{{list.id}}?_method=PUT" method="POST">
+ <input type="hidden" name="_method" value="PUT">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"><i class="fas fa-gift"></i></span>
   </div>
-  <input type="text" class="form-control" value="{{list.title}}" aria-label="listName" aria-describedby="basic-addon1">
+  <input type="text" class="form-control" value="{{list.title}}" name="title">
 </div>
 
 
@@ -15,7 +17,7 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">Product URL</span>
   </div>
-  <input type="text" class="form-control" id="basic-url" value="{{list.url}}">
+  <input type="text" class="form-control" id="basic-url" name="url" value="{{list.url}}">
 </div>
 
 
@@ -23,14 +25,14 @@
   <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon3">Image URL</span>
   </div>
-  <input type="text" class="form-control" id="basic-url" value="{{list.imgUrl}}" aria-describedby="basic-addon3">
+  <input type="text" class="form-control" id="basic-url" value="{{list.imgUrl}}" name="imgUrl">
 </div>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text">$</span>
   </div>
-  <input type="text" class="form-control" value="{{list.price}}" aria-label="Amount">
+  <input type="text" class="form-control" value="{{list.price}}" name="price">
 
 </div>
 
@@ -38,6 +40,9 @@
   <div class="input-group-prepend">
     <span class="input-group-text">Notes</span>
   </div>
-  <textarea class="form-control" aria-label="With textarea">{{list.notes}}</textarea>
+  <input type="text" name="notes" class="form-control" value="{{list.notes}}">
 </div>
+  <input type="submit" class="btn btn-success my-2 btn-md" value="Submit">
+</form>
 {{/if}}
+</div>

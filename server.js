@@ -5,7 +5,7 @@ const session = require('express-session');
 const passport = require('passport');
 const db = require('./models');
 const path = require('path');
-
+const methodOverride = require('method-override');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -13,8 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'public')));
-
-
+app.use(methodOverride('_method'));
 // Handlebars
 app.engine(
 	'handlebars',
@@ -37,22 +36,19 @@ app.use(passport.session());
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
 //Declare Global Variables
-app.use((req,resp,next) => {
+app.use((req, resp, next) => {
 	resp.locals.user = req.user || null;
 	next();
 });
 
 // Routes
-require("./routes/listApiRoutes")(app);
-require("./routes/listItemsApiRoutes")(app);
-require("./routes/userApiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-require("./routes/sharedApiRoute")(app);
+require('./routes/listApiRoutes')(app);
+require('./routes/listItemsApiRoutes')(app);
+require('./routes/userApiRoutes')(app);
+require('./routes/htmlRoutes')(app);
+require('./routes/sharedApiRoute')(app);
 
-
-
-
-let syncOptions = { force: false, alter :false };
+let syncOptions = { force: false, alter: false };
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

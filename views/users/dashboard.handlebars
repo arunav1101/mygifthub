@@ -20,15 +20,17 @@
         {{#each userRegistries}}
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="/dashboard">{{ListName}}</a>
-                <a href="/user/edit/:id">
+                <a href="/api/listItems/{{id}}">{{ListName}}
+                    <span>                
+                        <a href="/user/delete/{{id}}">
                     <i class="fas fa-trash float-right text-danger"></i>
+                        </a>
+                    </span>
                 </a>
-                <a href="/api/listItems/{{id}}">
+                {{!-- <a href="/api/listItems/{{id}}">
                     <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
-                </a>
+                </a> --}}
             </li>
-            {{!-- <li class="list-group-item">{{createdAt}}</li> --}}
         </ul>
         {{/each}}
     </div>
