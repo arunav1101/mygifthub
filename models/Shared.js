@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: "ListId",
       onDelete: "cascade"
     });
-  };
+  }; 
 
   return Shared;
 };

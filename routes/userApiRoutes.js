@@ -12,8 +12,8 @@ module.exports = function (app) {
   });
 
 
-  app.get("/api/user/id/:id", function (req, res) {
-    db.User.findAll({
+  app.get("/api/users/id/:id", function(req, res) {
+    db.User.findOne({
       limit: 1,
       where: {
         GoogleID: req.params.id
@@ -24,8 +24,8 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/user/email/:emailId", function (req, res) {
-    db.User.findAll({
+  app.get("/api/users/email/:emailId", function (req, res) {
+    db.User.findOne({
       limit: 10,
       where: {
         emailAddress: req.params.emailId
@@ -37,7 +37,7 @@ module.exports = function (app) {
   });
 
 
-  app.get("/api/users/:id", function (req, res) {
+  app.get("/api/users/:id", function(req, res) {
     db.User.findAll({
       limit: 1,
       where: {
