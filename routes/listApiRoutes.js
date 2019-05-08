@@ -6,30 +6,35 @@ module.exports = function (app) {
   /// Api's for list
   app.get("/api/list", function (req, res) {
     db.Lists.findAll({
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
-  app.get("/api/list/:id", function(req, res) {
+  app.get("/api/list/:id", function (req, res) {
     db.Lists.findOne({
       where: {
         id: req.params.id
       },
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
-  app.get("/api/list/shared/:id", function(req, res) {
+  app.get("/api/list/shared/:id", function (req, res) {
     db.Lists.findAll({
       // include:[db.Lists],
-      where: { id: req.params.id }, 
-      include : [db.Shared]
+      where: {
+        id: req.params.id
+      },
+      include: [db.Shared],
+      required: false
     }).then(function (results) {
       res.json(results);
     });
@@ -37,11 +42,19 @@ module.exports = function (app) {
 
 
   // Create a new example
+<<<<<<< HEAD
   app.post("/api/list", function(req, res) {
     db.Lists.create({
         ListName: req.body.ListName,
         Category: req.body.Category,
         GoogleID: req.body.GoogleID
+=======
+  app.post("/api/list/:userId", function (req, res) {
+    db.Lists.create({
+        ListName: req.body.ListName,
+        GoogleID: req.body.GoogleID,
+        UserId: req.params.userId
+>>>>>>> master
       }).then(function (results) {
         res.json(results);
       })

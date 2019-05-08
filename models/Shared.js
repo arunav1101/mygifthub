@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
   var Shared = sequelize.define("Shared", {
     ListId: {
       type: DataTypes.STRING,
@@ -8,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     sharedTo: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER(225),
       allowNull: false,
       validate: {
         len: [1]
@@ -18,18 +19,10 @@ module.exports = function(sequelize, DataTypes) {
 
   /* Shared.associate = function(models) {
     Shared.belongsTo(models.Lists, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "ListId",
+      onDelete: "cascade"
     });
   }; */
 
-  Shared.associate = function(models) {
-    Shared.belongsTo(models.Lists, {
-      foreignKey:'id',
-      onDelete: "cascade",
-      foreignKeyConstraint:true
-    });
-  };
   return Shared;
 };
