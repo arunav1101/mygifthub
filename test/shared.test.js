@@ -5,16 +5,16 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-
-pathUrl = 'http://localhost:3000/'
+const PORT = process.env.PORT || 3000;
+pathUrl = `http://localhost:${PORT}/`;
 
 const dataStore = {
   userId: null,
   listId: null,
   userId2: null,
   listId2: null,
-  list1Details:null,
-  listSharedDetails:null
+  list1Details: null,
+  listSharedDetails: null
 }
 describe("Validate Shared Api test", () => {
   it("should create new user 1", () => chai.request(pathUrl)
@@ -53,8 +53,8 @@ describe("Validate Shared Api test", () => {
     }).then((res) => {
       expect(res).status(200);
       dataStore.listId = res.body.id;
-      console.log('list1',res.body)
-      dataStore.list1Details=res.body;
+      console.log('list1', res.body)
+      dataStore.list1Details = res.body;
     })
   )
 
@@ -67,7 +67,7 @@ describe("Validate Shared Api test", () => {
     }).then((res) => {
       expect(res).status(200);
       dataStore.listId2 = res.body.id;
-     
+
     })
   )
 
@@ -86,19 +86,19 @@ describe("Validate Shared Api test", () => {
     .get(`api/users/${dataStore.userId}`)
     .then((res) => {
       expect(res).status(200);
-     console.log(res.body)
-     expect(res.body[0].GoogleID).to.equal('user1');
-     expect(res.body[0].emailAddress).to.equal('a@a.com');
-     expect(res.body[0].firstName).to.equal('test');
-     expect(res.body[0].lastName).to.equal('test');
-     expect(res.body[0].photo).to.equal('test');
-     expect(res.body[0].createdAt).to.exist;
-     expect(res.body[0].updatedAt).to.exist;
-     expect(res.body[0].Lists[0]).to.not.empty;
-     expect(res.body[0].Lists[0].UserId).to.equal(dataStore.userId);
-     expect(res.body[0].Lists[0].id).to.equal(dataStore.listId);
-    expect(res.body[0].Shareds[0]).to.not.empty;
-    expect(res.body[0].Shareds[0].ListId).to.equal(`${dataStore.listId2}`);
+      console.log(res.body)
+      expect(res.body[0].GoogleID).to.equal('user1');
+      expect(res.body[0].emailAddress).to.equal('a@a.com');
+      expect(res.body[0].firstName).to.equal('test');
+      expect(res.body[0].lastName).to.equal('test');
+      expect(res.body[0].photo).to.equal('test');
+      expect(res.body[0].createdAt).to.exist;
+      expect(res.body[0].updatedAt).to.exist;
+      expect(res.body[0].Lists[0]).to.not.empty;
+      expect(res.body[0].Lists[0].UserId).to.equal(dataStore.userId);
+      expect(res.body[0].Lists[0].id).to.equal(dataStore.listId);
+      expect(res.body[0].Shareds[0]).to.not.empty;
+      expect(res.body[0].Shareds[0].ListId).to.equal(`${dataStore.listId2}`);
 
     })
   )

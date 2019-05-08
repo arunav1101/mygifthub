@@ -1,3 +1,5 @@
+"use strict";
+
 const chai = require('chai')
 const chaiHttp = require('chai-http');
 
@@ -5,8 +7,8 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-
-pathUrl = 'http://localhost:3000/'
+const PORT = process.env.PORT || 3000;
+pathUrl = `http://localhost:${PORT}/`;
 
 const dataStore = {
   userId: null

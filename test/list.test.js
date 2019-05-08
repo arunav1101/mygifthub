@@ -5,12 +5,12 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-
-pathUrl = 'http://localhost:3000/'
+const PORT = process.env.PORT || 3000;
+pathUrl = `http://localhost:${PORT}/`
 
 const dataStore = {
   userId: null,
-  listId:null
+  listId: null
 }
 describe("Validate list Api test", () => {
   it("should create new user", () => chai.request(pathUrl)
@@ -39,12 +39,12 @@ describe("Validate list Api test", () => {
   )
 
   it("should get the details of created List", () => chai.request(pathUrl)
-  .get(`api/list/${dataStore.listId}`)
-  .then((res) => {
-    expect(res).status(200);
-    expect(res.body.ListName).to.equal('Test');
-    expect(res.body.GoogleID).to.equal('Test11');
-    expect(res.body.UserId).to.equal(dataStore.userId);
-  })
-)
+    .get(`api/list/${dataStore.listId}`)
+    .then((res) => {
+      expect(res).status(200);
+      expect(res.body.ListName).to.equal('Test');
+      expect(res.body.GoogleID).to.equal('Test11');
+      expect(res.body.UserId).to.equal(dataStore.userId);
+    })
+  )
 });
