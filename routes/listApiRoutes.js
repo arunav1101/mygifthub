@@ -6,38 +6,51 @@ module.exports = function (app) {
   /// Api's for list
   app.get("/api/list", function (req, res) {
     db.Lists.findAll({
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
-  app.get("/api/list/:id", function(req, res) {
+  app.get("/api/list/:id", function (req, res) {
     db.Lists.findOne({
       where: {
         id: req.params.id
       },
-      include: [db.ListItems]
+      include: [db.ListItems],
+      required: false
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
+  app.get("/api/list/shared/:id", function (req, res) {
+    db.Lists.findAll({
+      // include:[db.Lists],
+      where: {
+        id: req.params.id
+      },
+      include: [db.Shared],
+      required: false
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
+
   // Create a new example
-  app.post("/api/list/:userId", function(req, res) {
+  app.post("/api/list/:userId", function (req, res) {
     db.Lists.create({
         ListName: req.body.ListName,
         GoogleID: req.body.GoogleID,
-        UserId:req.params.userId
+        UserId: req.params.userId
       }).then(function (results) {
-        // We have access to the new todo as an argument inside of the callback function
         res.json(results);
       })
       .catch(function (err) {
-        // Whenever a validation or flag fails, an error is thrown
-        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);
       });
   });
@@ -54,8 +67,6 @@ module.exports = function (app) {
   });
 
   app.put("/api/list/:id", function (req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
     db.Lists.update({
       ListName: req.body.ListName
     }, {
@@ -65,8 +76,6 @@ module.exports = function (app) {
     }).then(function (results) {
       res.sendStatus(200);
     }).catch(function (err) {
-      // Whenever a validation or flag fails, an error is thrown
-      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
       res.json(err);
     });
   });

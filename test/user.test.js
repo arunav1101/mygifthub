@@ -1,3 +1,5 @@
+"use strict";
+
 const chai = require('chai')
 const chaiHttp = require('chai-http');
 
@@ -5,8 +7,8 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-
-pathUrl = 'http://localhost:3000/'
+const PORT = process.env.PORT || 3000;
+pathUrl = `http://localhost:${PORT}/`;
 
 const dataStore = {
   userId: null
@@ -29,15 +31,15 @@ describe("Validate User Api test", ()=> {
   );
 
 
-  it("shoudl get new user details", () => chai.request(pathUrl)
+  it("should get new user details", () => chai.request(pathUrl)
     .get(`api/users/${dataStore.userId}`)
     .then((res) => {
       expect(res).status(200);
-      expect(res.body.GoogleID).to.equal('test');
-      expect(res.body.emailAddress).to.equal('a@a.com');
-      expect(res.body.firstName).to.equal('test');
-      expect(res.body.lastName).to.equal('test');
-      expect(res.body.photo).to.equal('test');
+      expect(res.body[0].GoogleID).to.equal('test');
+      expect(res.body[0].emailAddress).to.equal('a@a.com');
+      expect(res.body[0].firstName).to.equal('test');
+      expect(res.body[0].lastName).to.equal('test');
+      expect(res.body[0].photo).to.equal('test');
     })
   )
 

@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Lists = sequelize.define("Lists", {
     ListName: {
       type: DataTypes.STRING,
@@ -16,11 +16,14 @@ module.exports = function(sequelize, DataTypes) {
     },
     UserId: {
       type: DataTypes.INTEGER(225),
-
+      validate: {
+        len: [1]
+      }
     }
+
   });
 
-  Lists.associate = function(models) {
+  Lists.associate = function (models) {
     // We're saying that a Lists should belong to an Author
     // A Lists can't be created without an Author due to the foreign key constraint
     Lists.belongsTo(models.User, {
@@ -30,13 +33,15 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  Lists.associate = function(models) {
-    // Associating User with Listss
-    // When an User is deleted, also delete any associated Listss
+  Lists.associate = function (models) {
     Lists.hasMany(models.ListItems, {
       onDelete: "cascade"
     });
-  };
 
+    Lists.hasMany(models.Shared, {
+      foreignKey: "ListId",
+      onDelete: "cascade"
+    });
+  };
   return Lists;
 };
