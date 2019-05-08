@@ -1,0 +1,43 @@
+{{#if list}}
+<div>
+  <h1>Edit Your {{list.title}} List</h1>
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fas fa-gift"></i></span>
+  </div>
+  <input type="text" class="form-control" value="{{list.title}}" aria-label="listName" aria-describedby="basic-addon1">
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon3">Product URL</span>
+  </div>
+  <input type="text" class="form-control" id="basic-url" value="{{list.url}}">
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon3">Image URL</span>
+  </div>
+  <input type="text" class="form-control" id="basic-url" value="{{list.imgUrl}}" aria-describedby="basic-addon3">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">$</span>
+  </div>
+  <input type="text" class="form-control" value="{{list.price}}" aria-label="Amount">
+
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Notes</span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea">{{list.notes}}</textarea>
+</div>
+{{/if}}

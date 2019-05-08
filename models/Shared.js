@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
   var Shared = sequelize.define("Shared", {
     ListId: {
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Shared.associate = function(models) {
+  Shared.associate = function (models) {
     Shared.belongsTo(models.Lists, {
       foreignKey: "ListId",
       onDelete: "cascade"
