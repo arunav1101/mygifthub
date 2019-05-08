@@ -11,12 +11,53 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/api/users/:id", function (req, res) {
-    db.User.findOne({
+
+  app.get("/api/user/id/:id", function (req, res) {
+    db.User.findAll({
+      limit: 1,
       where: {
         GoogleID: req.params.id
+      }
+    }).then(function (results) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(results);
+    });
+  });
+
+  app.get("/api/user/email/:emailId", function (req, res) {
+    db.User.findAll({
+      limit: 10,
+      where: {
+        emailAddress: req.params.emailId
+      }
+    }).then(function (results) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(results);
+    });
+  });
+
+
+  app.get("/api/users/:id", function (req, res) {
+    db.User.findAll({
+      limit: 1,
+      where: {
+        id: req.params.id
       },
-      include: [db.Lists],
+      include: [{
+          model: db.Lists,
+          required: false,
+          where: {
+            UserId: req.params.id
+          }
+        },
+        {
+          model: db.Shared,
+          required: false,
+          where: {
+            sharedTo: req.params.id
+          }
+        }
+      ]
     }).then(function (results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
