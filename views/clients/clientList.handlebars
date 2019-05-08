@@ -1,0 +1,19 @@
+{{#if lists}}
+
+  <h5>{{lists.ListName}}</h5>
+      {{#each lists.ListItems}}
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span><img src="{{imgUrl}}" class="img-thumbnail"></span>
+        <a href="{{url}}" target="_blank">{{title}}</a>
+        <a href="/user/edit/:id">
+          <i class="fas fa-trash float-right text-danger"></i>
+        </a>
+        <a href="/api/listItems/edit/{{id}}">
+          <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+        </a>
+         <span class="text-center float-right pr-2 text-primary">$ {{price}}</span>
+      </li>
+    </ul>
+    {{/each}}
+{{/if}}
