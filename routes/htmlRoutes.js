@@ -43,6 +43,14 @@ module.exports = function (app) {
     res.render("shared_lists_single/shared_single");
   });
 
+  app.get("/create_list", function (req, res) {
+    res.render("forms/newList");
+  });
+
+  app.get("/new_item", function (req, res) {
+    res.render("forms/newItem");
+  });
+
   //************** */
 
   // Load example page and pass in an example by id
