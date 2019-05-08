@@ -16,13 +16,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Shared.associate = function(models) {
+  /* Shared.associate = function(models) {
     Shared.belongsTo(models.Lists, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
+  }; */
 
   Shared.associate = function(models) {
     Shared.belongsTo(models.Lists, {

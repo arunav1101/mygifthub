@@ -14,9 +14,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    UserId: {
+    /* UserId: {
       type: DataTypes.INTEGER(225),
 
+    } */
+    Category: {
+      type: DataTypes.STRING,
+      defaultValue: "Wish List"
     }
 
   });
@@ -35,11 +39,11 @@ module.exports = function(sequelize, DataTypes) {
     Lists.hasMany(models.ListItems, {
       onDelete: "cascade"
     });
-    Lists.hasMany(models.Shared,{
+   /*  Lists.hasMany(models.Shared,{
       foreignKey:'ListId',
       onDelete: "cascade",
       foreignKeyConstraint:true
-    });
+    }); */
     }
 
   return Lists;

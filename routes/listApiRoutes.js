@@ -37,11 +37,11 @@ module.exports = function (app) {
 
 
   // Create a new example
-  app.post("/api/list/:userId", function(req, res) {
+  app.post("/api/list", function(req, res) {
     db.Lists.create({
         ListName: req.body.ListName,
-        GoogleID: req.body.GoogleID,
-        UserId:req.params.userId
+        Category: req.body.Category,
+        GoogleID: req.body.GoogleID
       }).then(function (results) {
         res.json(results);
       })
