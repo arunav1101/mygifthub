@@ -38,19 +38,19 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  // User.associate = function (models) {
-  //   // Associating User with Listss
-  //   // When an User is deleted, also delete any associated Listss
-  //   User.hasMany(models.Lists, {
-  //     // foreignkey:"id",
-  //     onDelete: "CASCADE"
-  //   });
+  User.associate = function (models) {
+    // Associating User with Listss
+    // When an User is deleted, also delete any associated Listss
+    User.hasMany(models.Lists, {
+      // foreignkey:"id",
+      onDelete: "CASCADE"
+    });
 
-  //   User.hasMany(models.Shared,{
-  //     foreignKey:'sharedTo',
-  //     onDelete: "cascade"
-  //   });
-  // };
+    User.hasMany(models.Shared,{
+      foreignKey:'sharedTo',
+      onDelete: "cascade"
+    });
+  };
 
   return User;
 };
