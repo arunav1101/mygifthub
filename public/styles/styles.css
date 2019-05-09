@@ -1,5 +1,7 @@
 /*-----------------------------------------------------------------*/
+
 /* COLORS*/
+
 /*-----------------------------------------------------------------*/
 
 .Registry-1-hex {
@@ -7,7 +9,7 @@
 }
 
 .Registry-2-hex {
-  color: #516F7F;
+  color: #2058a5;
 }
 
 .Registry-3-hex {
@@ -23,7 +25,9 @@
 }
 
 /*-----------------------------------------------------------------*/
+
 /* BASIC SETUP*/
+
 /*-----------------------------------------------------------------*/
 
 * {
@@ -33,8 +37,8 @@
 }
 
 html {
-  background-color:#fff;
-  color:  #555;
+  background-color: #fff;
+  color: #777D7F;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -50,7 +54,9 @@ html {
 }
 
 /*-----------------------------------------------------------------*/
+
 /* GLOBAL COMPONENTS */
+
 /*-----------------------------------------------------------------*/
 
 .row {
@@ -74,19 +80,20 @@ section {
 h1, h2, h3 {
   font-weight: 300;
   text-transform: uppercase;
+  color: #777D7F;
 }
 
 h1 {
   margin: 0 0 20px 0;
-  color: #516F7F;
-  font-size: 300%;
+  font-size: 3rem;
   word-spacing: 4px;
   letter-spacing: 1px;
 }
 
 h2 {
-  font-size: 240%;
+  font-size: 2.5rem;
   word-spacing: 2px;
+  vertical-align: middle;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: 1px;
@@ -96,47 +103,67 @@ h2:after {
   /*puts content on site using only css*/
   display: block;
   height: 2px;
-  background-color: #fff;
+  background-color: #2058a5;
   content: " ";
-  width: 100px;
+  width: 10rem;
   /* for centering */
   margin: 0 auto;
   margin-top: 30px;
 }
 
 h3 {
-  font-size: 110%;
+  font-size: 1.25rem;
+  font-weight: 400;
   margin-bottom: 15px;
 }
 
+/*-----paragraphs-----*/
+
+.long-copy {
+  line-height: 1.5rem;
+  width: 70%;
+}
+
+.box-text {
+  padding: .3rem;
+  font-size: .9rem;
+  line-height: 1.5rem;
+}
+
 /*-----------------------------------------------------------------*/
+
 /*-----------------------------------------------------------------*/
+
 /* KOFI's CSS
 /*-----------------------------------------------------------------*/
-/*-----------------------------------------------------------------*/
-
 
 /*-----------------------------------------------------------------*/
+
 /*-----------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------*/
+
 /* TRAV's CSS
 /*-----------------------------------------------------------------*/
+
 /*-----------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------*/
+
 /* JUMBOTRON
 /*-----------------------------------------------------------------*/
 
 .jumbotron {
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.), rgba(0, 0, 0, 0.2)), url(../images/images.jfif); */
-  background-color: #A2DEFF;
+  background-image: url(../images/confetti-giphy.gif);
+  background-color: #2058a5;
   display: flex;
   border-radius: 0;
-  padding-top: 5px;
+  padding-top: 80px;
   justify-content: center;
-  height: 160px;
+  height: 300px;
   margin-bottom: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  /* background-size: cover; */
   /* border-bottom: 1px solid #516F7F; */
 }
 
@@ -146,19 +173,23 @@ h3 {
   letter-spacing: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: #A2DEFF
 }
 
 .jumbotron-h1 {
-  color: #212529;
-
+  font-size: 3.5rem;
 }
 
 /*-----------------------------------------------------------------*/
+
 /* NAV BAR */
+
 /*-----------------------------------------------------------------*/
 
 #navBar {
-  background-color: #A2DEFF;
+  background-color: #2058a5;
+  /* background-image: linear-gradient(#2058a5 5% ,#5982bb 15%, #a2deff 85%, #ffffff); */
 }
 
 /*-----NAVBAR SECTIONS-----*/
@@ -166,7 +197,6 @@ h3 {
 /*-----logo & brand-----*/
 
 navbar-logo {
-  
   margin-left: 1.5rem;
   margin-right: .5rem;
   margin-bottom: .2rem;
@@ -176,23 +206,24 @@ img.box-logo {
   margin-right: .5rem;
   margin-bottom: .5rem;
 }
+
 .navbar-brand {
-  color:  #777D7F;
+  color: #A2DEFF;
   margin-left: 2rem;
 }
 
 .logo-text {
   font-size: 2rem;
 }
+
 .com {
   font-size: 1.25rem;
-  
 }
 
 .navbar-brand:hover {
-  color: #007bff;
+  color: #fff;
   transition: all 750ms ease-in-out;
-} 
+}
 
 .box-logo:hover {
   animation: shake 600ms infinite;
@@ -218,36 +249,75 @@ img.box-logo {
 
 /*-----logo & brand For inline text-----*/
 
+img.box-logo-small {
+  margin-bottom: .3rem;
+}
 
-.logo-text-small {
+span.logo-text-small {
   font-size: 1.25rem;
   padding-left: .15rem;
-  color: #007bff;
+  color: #2058a5;
   text-decoration: none;
 }
+
 .com-small {
   font-size: .9rem;
-  color: #007bff;
+  color: #2058a5;
   text-decoration: none;
 }
 
-
- a.body-brand-small:hover {
-  text-decoration: none;
+img.box-logo-small:hover {
+  animation: shake 600ms infinite;
 }
-/*-----Search----*/
 
-.box-middle {
-  text-align: center;
-  display: block;
-  width: 75%;
-  margin: 0 20px 0 0;
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(1px, 1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(2px, -1px) rotate(2deg);
+  }
+  100% {
+    transform: translate(-1px, 1px) rotate(-1deg);
+  }
 }
+
+/*-----Icon Shake-----*/
+
+.intro-icon:hover {
+  animation: shake 600ms infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(1px, 1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, -1px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(2px, -1px) rotate(2deg);
+  }
+  100% {
+    transform: translate(-1px, 1px) rotate(-1deg);
+  }
+}
+
+/*-----Search Input-----*/
 
 .search-force-display {
   display: inline-block !important;
   width: 50%;
-  color:  #777D7F;
+  color: #2058a5;
 }
 
 .search-form {
@@ -255,17 +325,17 @@ img.box-logo {
 }
 
 #search-input::placeholder {
-  color:  #777D7F !important;
+  color: #A2DEFF!important;
 }
 
 #search-input {
   width: 100% !important;
-  background-color: #A2DEFF;
+  background-color: #2058a5;
   border-radius: 0;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid #777D7F;
+  border-bottom: 1px solid #A2DEFF;
   outline-width: 0!important;
 }
 
@@ -276,67 +346,87 @@ img.box-logo {
 .nav-search {
   position: absolute;
   right: 20px;
-  color: #777D7F;
+  color: #A2DEFF;
 }
 
 /*-----Buttons-----*/
 
 .btn-log-in, .btn-log-out {
   font-size: 1.25rem;
-  background-color: #A2DEFF;
-  color: #777D7F;
+  background-color: #2058a5;
+  color: #A2DEFF;
   font-weight: 400;
   margin-right: 15px;
   padding: 5px 30px;
   text-align: center;
-  border: 0; 
+  border: 0;
   outline: none;
   box-shadow: none;
-  border-radius: 50px; 
+  border-radius: 50px;
 }
-
 
 .btn-log-in:hover, .btn-log-out:hover {
   font-size: 1.rem;
   background-position: 100% 0;
-  background: #516F7F;
-  background: linear-gradient(to right, #A2DEFF, #516F7F);
-  color: #555;
+  background: #2058a5;
+  background: linear-gradient(to right, #A2DEFF, #2058a5, #A2DEFF);
+  color: #fff;
   outline: none;
   box-shadow: none;
   transition: all 400ms ease-in-out;
-  
 }
 
 .btn:focus {
   outline: none;
   box-shadow: none;
 }
+
 /*-----------------------------------------------------------------*/
+
 /* SITE INTRO */
+
 /*-----------------------------------------------------------------*/
-.into {
+
+.intro-text-box {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-.line1, .line2 {
-  
-  color: #555;
+
+.intro-icon {
+  color: #2058a5;
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 /*-----------------------------------------------------------------*/
+
 /* EVENTS SHOWCASE */
+
 /*-----------------------------------------------------------------*/
 
 .events-showcase {
   list-style: none;
-  background-size: contain;
-  width: 100vw;
+  width: 100%;
 }
 
 .events-showcase li {
-  display: flex;
-  justify-content: stretch;
+  display: block;
+  float: left;
   width: 25%;
   list-style: none;
+  height: auto;
+}
 
+.event-photo {
+  width: 100%;
+  margin: 0;
+}
+
+.event-photo img {
+  width: 100%;
+  height: auto;
 }
