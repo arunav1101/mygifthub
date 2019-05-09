@@ -8,14 +8,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     url: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
         isUrl: true
       }
     },
     imgUrl: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
       validate: {
         isUrl: true
