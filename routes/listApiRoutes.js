@@ -21,7 +21,9 @@ module.exports = function(app) {
       include: [db.ListItems]
     }).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
-      res.json(results);
+      res.render('users/editList', {
+        list: results
+      });
     });
   });
 

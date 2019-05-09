@@ -70,7 +70,7 @@ module.exports = function(app) {
 			});
 	});
 
-	app.put('/api/listItems/:id', function(req, res) {
+	app.put('/api/listItems/:id/:ListId', function(req, res) {
 		const newListItem = {
 			title: req.body.title,
 			url: req.body.url,
@@ -86,7 +86,8 @@ module.exports = function(app) {
 				}
 			})
 			.then(function(results) {
-				res.redirect(`/api/ListItems/${req.params.id}`);
+				console.log(results)
+				res.redirect(`/api/listItems/${req.params.ListId}`);
 			})
 			.catch(function(err) {
 				// Whenever a validation or flag fails, an error is thrown

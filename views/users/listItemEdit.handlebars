@@ -3,7 +3,7 @@
 <div>
   <h1 class="text-center font-weight-bold">Edit Your {{list.title}} List</h1>
 </div>
-<form action="/api/listItems/{{list.id}}?_method=PUT" method="POST">
+<form action="/api/listItems/{{list.id}}/{{list.ListId}}?_method=PUT" method="POST">
  <input type="hidden" name="_method" value="PUT">
 <div class="input-group mb-3">
   <div class="input-group-prepend">
