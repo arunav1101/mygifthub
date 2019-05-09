@@ -1,42 +1,39 @@
+<h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
+<hr>
 
-<div>
-  <h1>Edit Your Event List</h1>
-</div>
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon1"><i class="fas fa-gift"></i></span>
+<div class="row mb-5">
+  <div class="col-md-2 mr-2">
+    {{#if user}}
+    <div class="card">
+      <img src="{{user.photo}}" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title text-center font-weight-bold" style="color:#516F7F!important">
+          {{user.firstName}} {{user.lastName}}</h5>
+        <p class="card-text">A guy with 2 babies</p>
+      </div>
+    </div>
+    {{else}}
+    {{/if}}
   </div>
-  <input type="text" class="form-control" placeholder="list Name" aria-label="listName" aria-describedby="basic-addon1">
-</div>
-
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon3">Product URL</span>
+  <div class="col-md-7 ">
+    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
+    {{#each list}}
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
+        <a href="/user/edit/:id">
+          <i class="fas fa-trash float-right text-danger"></i>
+        </a>
+        <a href="/api/listItems/edit/{{id}}">
+          <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+        </a>
+      </li>
+    </ul>
+    {{/each}}
   </div>
-  <input type="text" class="form-control" id="basic-url" placeholder="http://" aria-describedby="basic-addon3">
 </div>
 
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon3">Image URL</span>
-  </div>
-  <input type="text" class="form-control" id="basic-url" placeholder="http://" aria-describedby="basic-addon3">
-</div>
 
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">$</span>
-  </div>
-  <input type="text" class="form-control" placeholder="00.00" aria-label="Amount">
 
-</div>
 
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Notes</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>

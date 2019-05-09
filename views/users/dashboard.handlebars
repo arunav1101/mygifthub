@@ -2,7 +2,7 @@
 <hr>
 
 <div class="row mb-5">
-    <div class="col-md-3 mr-2">
+    <div class="col-md-2">
         {{#if userPortfolio}}
         <div class="card">
             <img src="{{userPortfolio.photo}}" class="card-img-top">
@@ -15,26 +15,38 @@
         {{else}}
         {{/if}}
     </div>
-    <div class="col-md-8 ">
+    <div class="col-md-7">
         <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Lists</h5>
         {{#each userRegistries}}
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="/dashboard">{{ListName}}</a>
-                <a href="/user/edit/:id">
+                <a class="" style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
+                    <span>                
+                        <a href="/user/delete/{{id}}">
                     <i class="fas fa-trash float-right text-danger"></i>
-                </a>
-                <a href="user/edit/:{{id}}">
-                    <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+                        </a>
+                    </span>
                 </a>
             </li>
-            {{!-- <li class="list-group-item">{{createdAt}}</li> --}}
         </ul>
         {{/each}}
         <button id = "newList" class="btn btn-success submit btn-lg" type="button" onclick="location.href='/create_list';">Create a New List</button>
     </div>
+        <div class="col-md-3">
+        {{#if userPortfolio}}
+        <div class="card">
+            <h5 class="text-center font-weight-bold mb-0" style="color:#516F7F!important">Shared Lists</h5>
+            <div class="card-body">
+							<ul class="list-group">
+                {{#each userPortfolio.Shareds}}
+                   <li class="list-group-item border-0 text-center p-0"> 
+										 <a class="p-0" href="/client/list/{{ListId}}">List one</a>
+										</li>
+                {{/each}}
+							</ul>
+            </div>
+        </div>
+        {{else}}
+        {{/if}}
+    </div>
 </div>
-
-<script>
-
-</script>
