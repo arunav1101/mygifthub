@@ -1,5 +1,5 @@
 var db = require("../models");
-
+const axios = require('axios');
 module.exports = function(app) {
   // Get all examples
 
@@ -21,7 +21,9 @@ module.exports = function(app) {
       include: [db.ListItems]
     }).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
-      res.json(results);
+      res.render('users/editList', {
+        list: results
+      });
     });
   });
 
@@ -34,20 +36,23 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-
-  // Create a new example
-  app.post("/api/list/:userId", function(req, res) {
-    db.Lists.create({
-      ListName: req.body.ListName,
-      GoogleID: req.body.GoogleID,
-      UserId: req.params.userId
-    })
-      .then(function(results) {
-        res.json(results);
+  app.post("/api/list/:GoogleID", function(req, res) {
+    const fullUrl = req.protocol + '://' + req.get('host');
+    axios.get(`${fullUrl}/api/users/id/${req.params.GoogleID}`)
+    .then(results => {
+      console.log(results)
+      db.Lists.create({
+        ListName: req.body.ListName,
+        GoogleID: req.body.GoogleID,
+        UserId: results.data.id
       })
-      .catch(function(err) {
-        res.json(err);
-      });
+        .then(function(data) {
+          res.redirect('/dashboard')
+        })
+        .catch(function(err) {
+          res.json(err);
+        });
+    }).catch(err=>console.log(err))
   });
 
   // Delete an example by id

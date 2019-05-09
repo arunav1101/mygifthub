@@ -29,7 +29,6 @@ module.exports = function(app) {
 	// Load index page
 	app.get('/client/list/:id', function(req, resp) {
 		const fullUrl = req.protocol + '://' + req.get('host');
-		console.log(fullUrl);
 		axios
 			.get(`${fullUrl}/api/list/${req.params.id}`)
 			.then((res) => {
@@ -49,7 +48,13 @@ module.exports = function(app) {
 	app.get('/shared_lists_single', function(req, res) {
 		res.render('shared_lists_single/shared_single');
 	});
+	app.get('/create_list', function(req, res) {
+		res.render('forms/newList');
+	});
 
+	app.get('/new_item', function(req, res) {
+		res.render('forms/newItem');
+	});
 	//************** */
 	// Render 404 page for any unmatched routes
 	app.get('*', function(req, res) {

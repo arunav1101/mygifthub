@@ -30,7 +30,7 @@
             </li>
         </ul>
         {{/each}}
-        <button id = "newList" class="btn btn-success submit btn-lg" type="button" onclick="location.href='/create_list';">Create a New List</button>
+        <button id = "newList" class="btn btn-success submit btn-md mt-3 float-right" type="button" onclick="location.href='/create_list'">New Registry</button>
     </div>
         <div class="col-md-3">
         {{#if userPortfolio}}
@@ -40,7 +40,7 @@
 							<ul class="list-group">
                 {{#each userPortfolio.Shareds}}
                    <li class="list-group-item border-0 text-center p-0"> 
-										 <a class="p-0" href="/client/list/{{ListId}}">List one</a>
+				<a class="p-0" href="/client/list/{{ListId}}">List one</a>
 										</li>
                 {{/each}}
 							</ul>
