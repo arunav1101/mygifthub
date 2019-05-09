@@ -17,14 +17,17 @@
   </button> --}}
 
   <div class="box-middle">
-    <button class="navbar-toggler search-force-display" type="button" data-toggle="collapse"
+    {{#if userPortfolio}}
+      <a class="navbar-brand" href="/dashboard"><span class="logo-text">My Dashboard</span></a>
+    {{/if}}
+    {{!-- <button class="navbar-toggler search-force-display" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
       <form class="form-inline my-2 my-lg-0 search-form">
         <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="FIND A REGISTRY"
           aria-label="Search" name="search"><i class="fas fa-search nav-search"></i>
       </form>
-    </button>
+    </button> --}}
   </div>
  
   <div class="box-right">
