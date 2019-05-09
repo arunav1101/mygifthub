@@ -13,6 +13,9 @@ $(document).ready(function () {
 
   // Adding an event listener for when the form is submitted
   $(newListForm).on("submit", handleFormSubmit);
+  $("#userShared").on("submit",shareFormSubmit);
+
+  
   // Gets the part of the url that comes after the "?" (which we have if we're updating a list)
   var url = window.location.search;
   var listId;
@@ -110,4 +113,7 @@ $(document).ready(function () {
       }
     });
   }
+
+
+
 });
