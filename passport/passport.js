@@ -24,12 +24,13 @@ module.exports = function(passport) {
 						}
 					})
 					.then((user) => {
-						// console.log(user);
 						if (user[0]) {
 							//return USER
 							done(null, newUser);
+
 						} else {
 							db.User.create(newUser).then((user) => {
+
 								done(null, user);
 							});
 						}
@@ -43,6 +44,7 @@ module.exports = function(passport) {
 		done(null, user);
 	});
 	passport.deserializeUser((user, done) => {
+
 		done(null, user);
 	});
 };

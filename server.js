@@ -37,6 +37,7 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
 //Declare Global Variables
 app.use((req, resp, next) => {
+	console.log(req.user);
 	resp.locals.user = req.user || null;
 	next();
 });

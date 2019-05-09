@@ -29,7 +29,6 @@ module.exports = function(app) {
 	// Load index page
 	app.get('/client/list/:id', function(req, resp) {
 		const fullUrl = req.protocol + '://' + req.get('host');
-		console.log(fullUrl);
 		axios
 			.get(`${fullUrl}/api/list/${req.params.id}`)
 			.then((res) => {
