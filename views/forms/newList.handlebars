@@ -1,0 +1,36 @@
+<h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Create a New Registry</h3>
+<hr>
+{{#if user}}
+<h3>{{user.GoogleID}}</h3>
+{{/if}}
+<div class="row mb-5">
+    <div class="col-md-5 offset-md-3">
+        <form id="newList">
+          <div class="form-group">
+            <label for="ListName">Registry Name:</label>
+            <input type="text" class="form-control" id="ListName">
+            <br />
+            <input type="hidden" class="form-control" id="GoogleID" value = "{{user.GoogleID}}">
+            <div class="form-group">
+              <label for="category">Select Category:</label>
+              <select class="custom-select" id="category">
+                <option value="Birthday">Birthday</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Graduation">Graduation</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Wish List">Wish List</option>
+              </select>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+          </div>
+        </form>
+      </div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="/public/js/newList.js" type="text/javascript"></script>
