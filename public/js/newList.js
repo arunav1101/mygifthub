@@ -13,6 +13,9 @@ $(document).ready(function () {
 
   // Adding an event listener for when the form is submitted
   $(newListForm).on("submit", handleFormSubmit);
+  // $("#userShared").on("submit", shareFormSubmit);
+
+
   // Gets the part of the url that comes after the "?" (which we have if we're updating a list)
   //var url = window.location.search;
   //var listId;
@@ -109,4 +112,40 @@ $(document).ready(function () {
       //}
     });
   }
+  $(".sharedBtn").on("click", function (event) {
+   dataStore.listId = event.target.dataset.listid;
+    $('.modal-body').empty();
+    $("#Mymodal").modal("show");
+
+    $('.modal-body').append(`<div class="form-group">
+  <label for="usr">Enter the Email Address of your friend</label>
+  <input type="text" class="form-control" id="sharedEmailId">
+</div>`);
+  });
+
+$(".sharedModal").on("click", function (event) {
+  event.preventDefault();
+  console.log($("#sharedEmailId").val());
+$.ajax("/api/users/email/" + $("#sharedEmailId").val(), {
+  type: "GET"
+}).then(function (res) {
+
+  console.log('sharedModall respose', res);
+      console.log('UserId', res.id);
+      var sharedToUser = {
+        sharedTo: res.id
+      };
+
+      $.ajax("/api/shared/" + dataStore.listId, {
+        type: "post",
+        data: sharedToUser
+      }).then(function (response) {
+        console.log(response);
+    });
+  });
+});
+
+    //     });
+    // });
+    // });
 });

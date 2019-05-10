@@ -1,5 +1,25 @@
+{{!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> --}}
+{{!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> --}}
 <h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
 <hr>
+<div class="modal" tabindex="-1" role="dialog" id="Mymodal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sharing My Registry to</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn sharedModal btn-success" data-dismiss="modal"><span class="fas fa-share float-right">Share</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <div class = "container-fluid">
 <div class="row mb-5 d-flex flex-row">
@@ -28,6 +48,9 @@
                         </a>
                     </span>
                 </a>
+
+                                    <button class="sharedBtn  fas fa-share float-right  text-secondary" data-listId="{{id}}"></button>
+
             </li>
         </ul>
         {{/each}}
