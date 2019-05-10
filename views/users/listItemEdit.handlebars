@@ -1,7 +1,7 @@
 <div class="container">
 {{#if list}}
 <div>
-  <h1 class="text-center font-weight-bold">Add to Your {{list.title}} List</h1>
+  <h1 class="text-center font-weight-bold" text = "Add to Your {{list.title}} List"></h1>
 </div>
 <form action="/api/listItems/{{list.id}}/{{list.ListId}}?_method=PUT" method="POST">
  <input type="hidden" name="_method" value="PUT">
