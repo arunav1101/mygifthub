@@ -447,7 +447,19 @@ section.container-fluid {
   opacity: 1;
 }
 
-figcaption {
-  text-align: center;
-  color: #FfFFFF;
+/*-----------------------------------------------------------------*/
+
+/* FOOTER */
+
+/*-----------------------------------------------------------------*/
+.page-footer {
+  background-color: #2058a5;
 }
+
+i.footer-icon {
+  color: #A2DEFF
+}
+
+
+
+

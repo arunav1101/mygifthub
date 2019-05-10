@@ -59,7 +59,7 @@ module.exports = function (app) {
 	});
 
 	// Delete an example by id
-	app.delete('/api/listItems/:id', function (req, res) {
+	app.delete('/api/listItems/:id/:ListId', function (req, res) {
 		db.ListItems
 			.destroy({
 				where: {
@@ -67,7 +67,7 @@ module.exports = function (app) {
 				}
 			})
 			.then(function (results) {
-				res.json(results);
+				res.redirect(`/api/listItems/${req.params.ListId}`);
 			});
 	});
 
@@ -87,7 +87,6 @@ module.exports = function (app) {
 				}
 			})
 			.then(function (results) {
-				console.log(results)
 				res.redirect(`/api/listItems/${req.params.ListId}`);
 			})
 			.catch(function (err) {
