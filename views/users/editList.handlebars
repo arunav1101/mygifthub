@@ -1,4 +1,4 @@
-<h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
+<h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Registry Editor</h3>
 <hr>
 
 <div class = "container-fluid">
@@ -18,7 +18,7 @@
   <h1>{{list.id}}</h1>
 
   <div class="col-md-5">
-    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add new registry item</h5>
+    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add New Items to Registry</h5>
     <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
       <label for="name">Name</label>
       <input type="text" class="form-control" name="name" placeholder="Gift name...">
@@ -29,7 +29,7 @@
       <label for="imgURL">imgURL</label>
       <input type="url" class="form-control" name="imgURL" placeholder="Gift imgURL...">
 
-      <label for="price">Price</label>
+      <label for="price">Price $</label>
       <input type="text" class="form-control" name="price" placeholder="Gift price...">
 
       <label for="notes">Notes</label>
@@ -41,16 +41,16 @@
   <div class="col-md-4 ">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
     {{#each list}}
-    <ul id = "itemListGroup" class="list-group">
-      <li class="list-group-item d-md-inline-flex space-between">
-        <i class="fas fa-gifts"></i>
-        <a href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
-        <p>{{dataValues.price}}</p>
-        <a href="/user/edit/:id">
-          <i class="fas fa-trash float-right text-danger"></i>
+    <ul id = "itemListGroup space-between" class="list-group">
+      <li class="list-group-item">
+        <i class="fas fa-gifts float-left"></i>
+        <a class = "float-left space-between" href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
+        <a class = "float-left space-between">${{dataValues.price}}</a>
+        <a class = "float-right" href="/user/edit/:id">
+          <i class="fas fa-trash text-danger"></i>
         </a>
-        <a href="/api/listItems/edit/{{id}}">
-          <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+        <a class = "float-right" href="/api/listItems/edit/{{id}}">
+          <i class="fas fa-pencil-alt mr-2 text-secondary"></i>
         </a>
       </li>
     </ul>

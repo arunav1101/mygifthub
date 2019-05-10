@@ -3,27 +3,27 @@
 <h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
 <hr>
 <div class="modal" tabindex="-1" role="dialog" id="Mymodal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Sharing My Registry to</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sharing My Registry to</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn sharedModal btn-success" data-dismiss="modal"><span class="fas fa-share float-right">Share</span></button>
-          </div>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn sharedModal btn-primary" data-dismiss="modal"><span class="fas fa-share float-right">Share</span></button>
       </div>
     </div>
+  </div>
+</div>
 
 <div class="container-fluid">
-  <div class="row mb-5 d-flex flex-row">
-    <div class="col-lg-3">
+  <div class="row mb-5">
+    <div class="col-md-3">
         {{#if userPortfolio}}
         <div class="card">
             <img src="{{userPortfolio.photo}}" class="card-img-top">
@@ -36,22 +36,22 @@
       </div>
       {{else}}
       {{/if}}
-    </div>
-    <div class="col-lg-5">
-
+    <div class="col-md-5">
       <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
       {{#each userRegistries}}
       <ul class="list-group">
         <li class="list-group-item">
           <form action="/api/list/{{id}}?_method=DELETE" method="POST">
             <input type="hidden" name="_method" value="DELETE">
-            <a class="" style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
+            <a class="d-flex justify-content-start " style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
             </a>
-
-            <button class="float-right bg-transparent">
-              <i class="fas fa-trash float-right text-danger"></i>
+            <button class="bg-transparent float-right space">
+              <i class="fas fa-trash text-danger"></i>
             </button>
           </form>
+          <button class="sharedBtn bg-transparent float-right space">
+              <i class="fas fa-share"></i>  
+          </button>
         </li>
       </ul>
       {{/each}}
@@ -61,7 +61,7 @@
       </div>
 
     </div>
-    <div class="col-lg-4">
+    <div class="col-md-4">
       <h5 class="text-center font-weight-bold mb-0" style="color:#516F7F!important">Friends' Shared Lists</h5>
       {{#if userPortfolio}}
       <div class="card">
@@ -78,7 +78,7 @@
       {{else}}
       {{/if}}
     </div>
-
+  </div>
 </div> 
-</div>
+
 
