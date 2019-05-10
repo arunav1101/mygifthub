@@ -29,6 +29,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
+    },
+    isClaimed: {
+      type: DataTypes.Boolean,
+      default: false,
+      len: [1]
     }
   });
 
@@ -36,9 +41,7 @@ module.exports = function(sequelize, DataTypes) {
     // We're saying that a ListItems should belong to an Author
     // A ListItems can't be created without an Author due to the foreign key constraint
     ListItems.belongsTo(models.Lists, {
-      foreignKey: {
-        allowNull: false
-      }
+      onDelete: "cascade"
     });
   };
 

@@ -1,7 +1,8 @@
 <h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
 <hr>
 
-<div class="row mb-5">
+<div class = "container-fluid">
+<div class="row mb-3">
   <div class="col-md-2">
     {{#if user}}
     <div class="card">
@@ -9,15 +10,14 @@
       <div class="card-body">
         <h5 class="card-title text-center font-weight-bold" style="color:#516F7F!important">
           {{user.firstName}} {{user.lastName}}</h5>
-        <p class="card-text">A guy with 2 babies</p>
       </div>
     </div>
     {{else}}
     {{/if}}
   </div>
   <h1>{{list.id}}</h1>
-  {{#if list}}
-  <div class="col-md-7">
+
+  <div class="col-md-5">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add new registry item</h5>
     <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
       <label for="name">Name</label>
@@ -34,16 +34,18 @@
 
       <label for="notes">Notes</label>
       <textarea type="text" class="form-control" name="notes" placeholder="Gift Notes..."></textarea>
-      <button class="btn btn-md btn-success mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
+      <button class="btn btn-md btn-primary mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
     </form>
   </div>
-  {{/if}}
-  <div class="col-md-3 ">
+
+  <div class="col-md-4 ">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
     {{#each list}}
-    <ul class="list-group">
-      <li class="list-group-item">
+    <ul id = "itemListGroup" class="list-group">
+      <li class="list-group-item d-md-inline-flex space-between">
+        <i class="fas fa-gifts"></i>
         <a href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
+        <p>{{dataValues.price}}</p>
         <a href="/user/edit/:id">
           <i class="fas fa-trash float-right text-danger"></i>
         </a>
@@ -54,4 +56,5 @@
     </ul>
     {{/each}}
   </div>
+</div>
 </div>
