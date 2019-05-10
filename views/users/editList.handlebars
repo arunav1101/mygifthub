@@ -9,14 +9,14 @@
       <div class="card-body">
         <h5 class="card-title text-center font-weight-bold" style="color:#516F7F!important">
           {{user.firstName}} {{user.lastName}}</h5>
-        <p class="card-text">A guy with 2 babies</p>
+        <p class="card-text">A Web Developer</p>
       </div>
     </div>
     {{else}}
     {{/if}}
   </div>
   <h1>{{list.id}}</h1>
-  {{#if list}}
+
   <div class="col-md-7">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add new registry item</h5>
     <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
@@ -37,19 +37,24 @@
       <button class="btn btn-md btn-success mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
     </form>
   </div>
-  {{/if}}
+
   <div class="col-md-3 ">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
     {{#each list}}
     <ul class="list-group">
       <li class="list-group-item">
-        <a href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
-        <a href="/user/edit/:id">
-          <i class="fas fa-trash float-right text-danger"></i>
-        </a>
-        <a href="/api/listItems/edit/{{id}}">
-          <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
-        </a>
+        <form action="/api/listItems/{{id}}/{{ListId}}?_method=DELETE" method="POST">
+          <input type="hidden" name="_method" value="PUT">
+          <a href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
+
+          <button class="bg-transparent float-right">
+            <i class="fas fa-trash float-right text-danger"></i>
+          </button>
+
+          <a href="/api/listItems/edit/{{id}}">
+            <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+          </a>
+        </form>
       </li>
     </ul>
     {{/each}}
