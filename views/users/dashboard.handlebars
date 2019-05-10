@@ -21,59 +21,63 @@
       </div>
     </div>
 
-<div class = "container-fluid">
-<div class="row mb-5 d-flex flex-row">
+<div class="container-fluid">
+  <div class="row mb-5 d-flex flex-row">
     <div class="col-lg-3">
-        {{#if userPortfolio}}
-        <div class="card">
-            <img src="{{userPortfolio.photo}}" class="card-img-top">
-            <div class="card-body text-center">
-                <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
-                    {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
-                <p class="card-text">A Web Development Guy</p>
-            </div>
+      {{#if userPortfolio}}
+      <div class="card">
+        <img src="{{userPortfolio.photo}}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
+            {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
+          <p class="card-text">A Web Development Guy</p>
         </div>
-        {{else}}
-        {{/if}}
+      </div>
+      {{else}}
+      {{/if}}
     </div>
     <div class="col-lg-5">
-        <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
-        {{#each userRegistries}}
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a class="" style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
-                    <span>                
-                        <a href="/user/delete/{{id}}">
-                    <i class="fas fa-trash float-right text-danger"></i>
-                        </a>
-                    </span>
-                </a>
 
-                                    <button class="sharedBtn  fas fa-share float-right  text-secondary" data-listId="{{id}}"></button>
+      <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
+      {{#each userRegistries}}
+      <ul class="list-group">
+        <li class="list-group-item">
+          <form action="/api/list/{{id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <a class="" style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
+            </a>
 
-            </li>
-        </ul>
-        {{/each}}
-        <div class="d-flex justify-content-center">
-            <button id = "newList" class="btn btn-success submit btn-md mt-3 float-right" type="button" onclick="location.href='/create_list'">New Registry</button>
-        </div>
+            <button class="float-right bg-transparent">
+              <i class="fas fa-trash float-right text-danger"></i>
+            </button>
+          </form>
+        </li>
+      </ul>
+      {{/each}}
+      <div class="d-flex justify-content-center">
+        <button id="newList" class="btn btn-success submit btn-md mt-3 float-right" type="button"
+          onclick="location.href='/create_list'">New Registry</button>
+      </div>
+
     </div>
     <div class="col-lg-4">
-        <h5 class="text-center font-weight-bold mb-0" style="color:#516F7F!important">Friends' Shared Lists</h5>
-        {{#if userPortfolio}}
-        <div class="card">
-            <div class="card-body">
-							<ul class="list-group">
-                {{#each userPortfolio.Shareds}}
-                   <li class="list-group-item border-0 text-center p-0"> 
-				<a class="p-0" href="/client/list/{{ListId}}">List one</a>
-										</li>
-                {{/each}}
-							</ul>
-            </div>
+      <h5 class="text-center font-weight-bold mb-0" style="color:#516F7F!important">Friends' Shared Lists</h5>
+      {{#if userPortfolio}}
+      <div class="card">
+        <div class="card-body">
+          <ul class="list-group">
+            {{#each userPortfolio.Shareds}}
+            <li class="list-group-item border-0 text-center p-0">
+              <a class="p-0" href="/client/list/{{ListId}}">List one</a>
+            </li>
+            {{/each}}
+          </ul>
         </div>
-        {{else}}
-        {{/if}}
+      </div>
+      {{else}}
+      {{/if}}
     </div>
+
 </div> 
 </div>
+
