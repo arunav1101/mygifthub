@@ -122,6 +122,7 @@ h3 {
 .long-copy {
   line-height: 1.5rem;
   width: 70%;
+  margin-bottom: 30px;
 }
 
 .box-text {
@@ -407,7 +408,9 @@ img.box-logo-small:hover {
 /* EVENTS SHOWCASE */
 
 /*-----------------------------------------------------------------*/
-
+.section-events {
+  padding: 0;
+}
 .events-showcase {
   list-style: none;
   width: 100%;
@@ -417,16 +420,24 @@ img.box-logo-small:hover {
   display: block;
   float: left;
   width: 25%;
-  list-style: none;
-  height: auto;
-}
-
-.event-photo {
-  width: 100%;
-  margin: 0;
+  background-color: #000 ;
 }
 
 .event-photo img {
+  opacity: 0.7;
   width: 100%;
+  margin: 0;
   height: auto;
+  transform: scale(1.18);
+  transition: transform 500ms;
+  }
+
+.event-photo img:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+figcaption {
+  text-align: center;
+  color: #FfFFFF;
 }
