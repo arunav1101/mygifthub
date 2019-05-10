@@ -42,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
 		// Associating User with Listss
 		// When an User is deleted, also delete any associated Listss
 		User.hasMany(models.Lists, {
-			// foreignkey:"id",
+			foreignkey:"id",
 			onDelete: 'CASCADE'
 		});
 

@@ -32,7 +32,8 @@ module.exports = function (sequelize, DataTypes) {
     },
     isClaimed: {
       type: DataTypes.BOOLEAN,
-      default: false,
+      allowNull: false,
+      defaultValue: '0',
       len: [1]
     }
   });
