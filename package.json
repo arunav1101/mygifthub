@@ -21,7 +21,6 @@
     "nodemon": "^1.19.0",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
-    "popper.js": "^1.15.0",
     "sequelize": "^4.41.2"
   },
   "devDependencies": {
