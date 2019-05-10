@@ -457,6 +457,12 @@ i.footer-icon {
   color: #A2DEFF
 }
 
+#copyright {
+  color: #A2DEFF;
+}
 
-
-
+.footer-logo {
+  margin-left: .1rem;
+  margin-right: .5rem;
+  margin-bottom: .2rem;
+}
