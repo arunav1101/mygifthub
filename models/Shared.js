@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 	var Shared = sequelize.define('Shared', {
 		ListId: {
-			type: DataTypes.STRING,
+			type: DataTypes.INTEGER,
 			allowNull: false,
 			validate: {
 				len: [1]
