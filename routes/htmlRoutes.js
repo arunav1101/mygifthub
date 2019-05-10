@@ -29,10 +29,6 @@ module.exports = function(app) {
 	// Load index page
 	app.get('/client/list/:id', function(req, resp) {
 		const fullUrl = req.protocol + '://' + req.get('host');
-<<<<<<< HEAD
-		console.log(fullUrl);
-=======
->>>>>>> master
 		axios
 			.get(`${fullUrl}/api/list/${req.params.id}`)
 			.then((res) => {
@@ -46,32 +42,6 @@ module.exports = function(app) {
 	//************* */ These are Kofi's:
 
 	app.get('/shared_lists_all', function(req, res) {
-<<<<<<< HEAD
-    
-		res.render('shared_lists_all/shared_all');
-	});
-
-	app.get('/shared_lists_single/:id', function(req, resp) {
-    const fullUrl = req.protocol + '://' + req.get('host');
-    console.log('URL',fullUrl);
-    axios
-    .get(`${fullUrl}/api/users`)
-    // .get(`${fullUrl}/api/list/${req.params.id}`)
-    .then((res) => {
-      console.log(res.data);
-      console.log('URL',`${fullUrl}/api/list/${req.params.id}`);
-      resp.render('shared_lists_single/shared_single', {  
-        userlists: res.data
-      });
-      // resp.render('clients/clientList', {
-      //   lists: res.data
-      // });
-    })
-    .catch((err) => console.log(err));
-		// res.render('shared_lists_single/shared_single');
-	});
-
-=======
 		res.render('shared_lists_all/shared_all');
 	});
 
@@ -85,14 +55,9 @@ module.exports = function(app) {
 	app.get('/new_item', function(req, res) {
 		res.render('forms/newItem');
 	});
->>>>>>> master
 	//************** */
 	// Render 404 page for any unmatched routes
 	app.get('*', function(req, res) {
 		res.render('404');
 	});
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> master

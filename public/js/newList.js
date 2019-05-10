@@ -113,6 +113,7 @@ $(document).ready(function () {
     });
   }
   $(".sharedBtn").on("click", function (event) {
+   dataStore.listId = event.target.dataset.listid;
     $('.modal-body').empty();
     $("#Mymodal").modal("show");
 
@@ -135,7 +136,7 @@ $.ajax("/api/users/email/" + $("#sharedEmailId").val(), {
         sharedTo: res.id
       };
 
-      $.ajax("/api/shared/" + $("#sharedEmailId").val(), {
+      $.ajax("/api/shared/" + dataStore.listId, {
         type: "post",
         data: sharedToUser
       }).then(function (response) {
