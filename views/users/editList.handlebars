@@ -2,7 +2,7 @@
 <hr>
 
 <div class="row mb-5">
-  <div class="col-md-2 mr-2">
+  <div class="col-md-2">
     {{#if user}}
     <div class="card">
       <img src="{{user.photo}}" class="card-img-top">
@@ -15,7 +15,30 @@
     {{else}}
     {{/if}}
   </div>
-  <div class="col-md-7 ">
+  <h1>{{list.id}}</h1>
+  {{#if list}}
+  <div class="col-md-7">
+    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add new registry item</h5>
+    <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" placeholder="Gift name...">
+
+      <label for="url">Gift URL</label>
+      <input type="url" class="form-control" name="url" placeholder="Gift URL...">
+
+      <label for="imgURL">imgURL</label>
+      <input type="url" class="form-control" name="imgURL" placeholder="Gift imgURL...">
+
+      <label for="price">Price</label>
+      <input type="text" class="form-control" name="price" placeholder="Gift price...">
+
+      <label for="notes">Notes</label>
+      <textarea type="text" class="form-control" name="notes" placeholder="Gift Notes..."></textarea>
+      <button class="btn btn-md btn-success mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
+    </form>
+  </div>
+  {{/if}}
+  <div class="col-md-3 ">
     <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
     {{#each list}}
     <ul class="list-group">
@@ -32,8 +55,3 @@
     {{/each}}
   </div>
 </div>
-
-
-
-
-
