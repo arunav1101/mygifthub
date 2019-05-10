@@ -29,6 +29,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
+    },
+    isClaimed: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+      len: [1]
     }
   });
 

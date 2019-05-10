@@ -1,7 +1,7 @@
 <div class="container">
 {{#if list}}
 <div>
-  <h1 class="text-center font-weight-bold">Edit Your {{list.title}} List</h1>
+  <h1 class="text-center font-weight-bold">Add to Your {{list.title}} List</h1>
 </div>
 <form action="/api/listItems/{{list.id}}/{{list.ListId}}?_method=PUT" method="POST">
  <input type="hidden" name="_method" value="PUT">
@@ -42,7 +42,7 @@
   </div>
   <input type="text" name="notes" class="form-control" value="{{list.notes}}">
 </div>
-  <input type="submit" class="btn btn-success my-2 btn-md" value="Submit">
+  <input type="submit" class="btn btn-primary my-2 btn-md" value="Submit">
 </form>
 {{/if}}
 </div>
