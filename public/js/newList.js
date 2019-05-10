@@ -17,18 +17,18 @@ $(document).ready(function () {
 
 
   // Gets the part of the url that comes after the "?" (which we have if we're updating a list)
-  var url = window.location.search;
-  var listId;
+  //var url = window.location.search;
+  //var listId;
 
   // Sets a flag for whether or not we're updating a list to be false initially
-  var updating = false;
+  //var updating = false;
 
   // If we have this section in our url, we pull out the list id from the url
   // In '?list_id=1', listId is 1
-  if (url.indexOf("?list_id=") !== -1) {
+ /*  if (url.indexOf("?list_id=") !== -1) {
     listId = url.split("=")[1];
     getListData(listId, "list");
-  }
+  } */
 
   // A function for handling what happens when the form to create a new list is submitted
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
   }
 
   // Gets list data for the current list if we're editing
-  function getListData(id, type) {
+ /*  function getListData(id, type) {
     var queryUrl = "/api/list/" + id;
     $.ajax(queryUrl, {
       type: "GET"
@@ -69,10 +69,10 @@ $(document).ready(function () {
         updating = true;
       }
     });
-  }
+  } */
 
   // Update a given list, bring user to the dashboard page when done
-  function updateList(list) {
+/*   function updateList(list) {
     $.ajax({
       method: "PUT",
       url: "/api/lists",
@@ -80,7 +80,7 @@ $(document).ready(function () {
     }).then(function () {
       window.location.href = "/dashboard";
     });
-  }
+  } */
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -101,16 +101,15 @@ $(document).ready(function () {
         Category: categorySelect.val(),
         GoogleID: googleInput.val()
       };
-      console.log("NewList object: " + newList);
 
       // If we're updating a list run updateList to update a list
       // Otherwise run submitList to create a whole new list
-      if (updating) {
+/*       if (updating) {
         newList.id = listId;
         updateList(newList);
-      } else {
+      } else { */
         submitList(newList);
-      }
+      //}
     });
   }
   $(".sharedBtn").on("click", function (event) {

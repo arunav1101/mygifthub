@@ -29,7 +29,10 @@ module.exports = function(app) {
 	// Load index page
 	app.get('/client/list/:id', function(req, resp) {
 		const fullUrl = req.protocol + '://' + req.get('host');
+<<<<<<< HEAD
 		console.log(fullUrl);
+=======
+>>>>>>> master
 		axios
 			.get(`${fullUrl}/api/list/${req.params.id}`)
 			.then((res) => {
@@ -43,6 +46,7 @@ module.exports = function(app) {
 	//************* */ These are Kofi's:
 
 	app.get('/shared_lists_all', function(req, res) {
+<<<<<<< HEAD
     
 		res.render('shared_lists_all/shared_all');
 	});
@@ -67,9 +71,28 @@ module.exports = function(app) {
 		// res.render('shared_lists_single/shared_single');
 	});
 
+=======
+		res.render('shared_lists_all/shared_all');
+	});
+
+	app.get('/shared_lists_single', function(req, res) {
+		res.render('shared_lists_single/shared_single');
+	});
+	app.get('/create_list', function(req, res) {
+		res.render('forms/newList');
+	});
+
+	app.get('/new_item', function(req, res) {
+		res.render('forms/newItem');
+	});
+>>>>>>> master
 	//************** */
 	// Render 404 page for any unmatched routes
 	app.get('*', function(req, res) {
 		res.render('404');
 	});
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> master
