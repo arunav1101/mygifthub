@@ -13,7 +13,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn sharedModal btn-primary" data-dismiss="modal"><span class="fas fa-share float-right">Share</span></button>
+        <button type="button" class="btn sharedModal btn-primary" data-dismiss="modal"><span
+            class="fas fa-share float-right">Share</span></button>
       </div>
     </div>
   </div>
@@ -22,32 +23,34 @@
 <div class="container-fluid">
   <div class="row mb-5">
     <div class="col-md-3">
-        {{#if userPortfolio}}
-        <div class="card">
-            <img src="{{userPortfolio.photo}}" class="card-img-top">
-            <div class="card-body text-center">
-                <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
-                    {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
-                {{!-- <p class="card-text">A Web Development Guy</p> --}}
-            </div>
+      {{#if userPortfolio}}
+      <div class="card">
+        <img src="{{userPortfolio.photo}}" class="card-img-top">
+        <div class="card-body text-center">
+          <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
+            {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
+          {{!-- <p class="card-text">A Web Development Guy</p> --}}
         </div>
       </div>
-      {{else}}
-      {{/if}}
+    </div>
+    {{else}}
+    {{/if}}
     <div class="col-md-5">
       <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
       {{#each userRegistries}}
       <ul class="list-group">
         <li class="list-group-item">
-          <form action="/api/list/{{id}}?_method=DELETE" method="POST">
+          <form>
             <input type="hidden" name="_method" value="DELETE">
-            <a class="d-flex justify-content-start " style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
+            <a class="d-flex justify-content-start " style="color:#516F7F!important"
+              href="/api/listItems/{{id}}">{{ListName}}
             </a>
             <button class="bg-transparent float-right space">
-              <i class="fas fa-trash text-danger"></i>
+              <i class="deleteBtn fas fa-trash text-danger" data-listId="{{id}}"></i>
             </button>
           </form>
-          <button class="sharedBtn  fas fa-share float-right mr-1 text-secondary bg-transparent" data-listId="{{id}}"></button>
+          <button class="sharedBtn  fas fa-share float-right mr-1 text-secondary bg-transparent"
+            data-listId="{{id}}"></button>
         </li>
       </ul>
       {{/each}}
@@ -75,6 +78,4 @@
       {{/if}}
     </div>
   </div>
-</div> 
-
-
+</div>
