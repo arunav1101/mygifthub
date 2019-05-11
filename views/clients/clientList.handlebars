@@ -18,8 +18,19 @@
           </span>
         </div>
         <div class="col-md-4">
-          <a class="my-auto fas fa-gift float-right text-success" href="/user/edit/:id">
+          {{#if isClaimed}}
+          <a class="my-auto float-right text-danger">
+            <i class="fas fa-exclamation-circle"></i> Claimed
           </a>
+          {{else}}
+          <form action="/client/listItem/claim/{{ListId}}/{{id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <button class="bg-transparent my-auto float-right text-success">
+              <i class="fas fa-gift "></i>
+              Available
+            </button>
+          </form>
+          {{/if}}
           <a class="my-auto float-right pr-2 text-primary">$ {{price}}</a>
         </div>
       </div>

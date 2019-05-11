@@ -38,12 +38,26 @@ module.exports = function(app) {
           id: list.UserId
         }
       }).then(user => {
-        console.log(user);
         resp.render("clients/clientList", {
           list: list,
           creator: user
         });
       });
+    });
+  });
+
+  app.put("/client/listItem/claim/:ListId/:ItemId", (req, resp) => {
+    db.ListItems.update(
+      {
+        isClaimed: true
+      },
+      {
+        where: {
+          id: req.params.ItemId
+        }
+      }
+    ).then(item => {
+      resp.redirect(`/client/list/${req.params.ListId}`);
     });
   });
 

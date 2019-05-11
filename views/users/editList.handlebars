@@ -46,10 +46,11 @@
         <li class="list-group-item">
           <form action="/api/listItems/{{id}}/{{ListId}}?_method=DELETE" method="POST">
             <input type="hidden" name="_method" value="DELETE">
-            <a href="{{dataValues.url}}" target="_blank"> <i class="fas fa-gifts"></i> {{dataValues.title}}</a>
+            <a href="{{dataValues.url}}" target="_blank"> <i class="fas fa-gifts"></i>
+              {{truncate dataValues.title 10}}</a>
 
             <button class="bg-transparent float-right">
-              <i class="fas fa-trash float-right text-danger"></i>
+              <i class="fas fa-trash float-right text-danger mt-2"></i>
             </button>
 
             <a href="/api/listItems/edit/{{id}}">
