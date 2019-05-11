@@ -9,8 +9,6 @@ const methodOverride = require("method-override");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const { shareListName } = require("./config/helpers");
-
 // Middleware
 app.use(
   express.urlencoded({
