@@ -23,9 +23,7 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    helpers: {
-      shareListName: shareListName
-    }
+    helpers: {}
   })
 );
 app.set("view engine", "handlebars");
