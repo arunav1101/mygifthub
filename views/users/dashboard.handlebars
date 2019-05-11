@@ -40,9 +40,9 @@
       <ul id = "dashList" class="list-group space-between">
         <li class="list-group-item">
           <form>
-            <input type="hidden" name="_method" value="DELETE">
+            {{!-- <input type="hidden" name="_method" value="DELETE"> --}}
             <a class="d-flex justify-content-start " style="color:#516F7F!important"
-              href="/Dashboard">{{ListName}}
+              href="/api/listItems/{{id}}">{{ListName}}
             </a>
             <button class="deleteBtn fas fa-trash text-danger float-right space"
               data-listId="{{id}}">
