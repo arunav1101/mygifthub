@@ -168,6 +168,9 @@ h3 {
   /* border-bottom: 1px solid #516F7F; */
 }
 
+.jumbotron-still {
+  background-image: url("") !important;
+}
 .jumbotron-h1, .jumbotron-p {
   text-transform: lowercase;
   word-spacing: 4px;
@@ -190,7 +193,7 @@ h3 {
 
 #navBar {
   background-color: #2058a5;
-  /* background-image: linear-gradient(#2058a5 5% ,#5982bb 15%, #a2deff 85%, #ffffff); */
+  
 }
 
 /*-----NAVBAR SECTIONS-----*/
