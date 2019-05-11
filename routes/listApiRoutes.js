@@ -1,5 +1,5 @@
 var db = require("../models");
-const axios = require('axios');
+const axios = require("axios");
 module.exports = function(app) {
   // Get all examples
 
@@ -13,10 +13,22 @@ module.exports = function(app) {
       res.json(results);
     });
   });
+  app.get("/api/listsearch/:id", function(req, res) {
+    db.Lists.findOne({
+      limit: 1,
+      where: {
+        id: req.params.id
+      },
+      include: [db.ListItems],
+      required: false
+    }).then(function(results) {
+      res.json(results);
+    });
+  });
 
   app.get("/api/list/:id", function(req, res) {
     db.Lists.findOne({
-      limit:1,
+      limit: 1,
       where: {
         id: req.params.id
       },
@@ -24,7 +36,7 @@ module.exports = function(app) {
       required: false
     }).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
-      res.render('users/editList', {
+      res.render("users/editList", {
         list: results
       });
     });
@@ -40,22 +52,23 @@ module.exports = function(app) {
     });
   });
   app.post("/api/list/:GoogleID", function(req, res) {
-    const fullUrl = req.protocol + '://' + req.get('host');
-    axios.get(`${fullUrl}/api/users/id/${req.params.GoogleID}`)
-    .then(results => {
-      console.log(results)
-      db.Lists.create({
-        ListName: req.body.ListName,
-        GoogleID: req.body.GoogleID,
-        UserId: results.data.id
-      })
-        .then(function(data) {
-          res.redirect('/dashboard')
+    const fullUrl = req.protocol + "://" + req.get("host");
+    axios
+      .get(`${fullUrl}/api/users/id/${req.params.GoogleID}`)
+      .then(results => {
+        db.Lists.create({
+          ListName: req.body.ListName,
+          GoogleID: req.body.GoogleID,
+          UserId: results.data.id
         })
-        .catch(function(err) {
-          res.json(err);
-        });
-    }).catch(err=>console.log(err))
+          .then(function(data) {
+            res.redirect("/dashboard");
+          })
+          .catch(function(err) {
+            res.json(err);
+          });
+      })
+      .catch(err => console.log(err));
   });
 
   // Delete an example by id

@@ -9,6 +9,8 @@ const methodOverride = require("method-override");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const { shareListName } = require("./config/helpers");
+
 // Middleware
 app.use(
   express.urlencoded({
@@ -22,7 +24,10 @@ app.use(methodOverride("_method"));
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    helpers: {
+      shareListName: shareListName
+    }
   })
 );
 app.set("view engine", "handlebars");

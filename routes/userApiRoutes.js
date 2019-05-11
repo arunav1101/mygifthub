@@ -1,16 +1,15 @@
 var db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Get all examples
 
   /// Api's for list
-  app.get("/api/users", function (req, res) {
-    db.User.findAll({}).then(function (results) {
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
-
 
   app.get("/api/users/id/:id", function(req, res) {
     db.User.findOne({
@@ -18,24 +17,29 @@ module.exports = function (app) {
       where: {
         GoogleID: req.params.id
       }
-    }).then(function (results) {
+    }).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
-  app.get("/api/users/email/:emailId", function (req, res) {
+  app.post("/api/users/email", function(req, res) {
+    console.log(req.body.ListName);
     db.User.findOne({
-      limit: 10,
+      limit: 1,
       where: {
-        emailAddress: req.params.emailId
+        emailAddress: req.body.shareEmail
       }
-    }).then(function (results) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(results);
+    }).then(function(results) {
+      db.Shared.create({
+        ListName: req.body.ListName,
+        ListId: req.body.ListId,
+        sharedTo: results.id
+      }).then(results => {
+        res.redirect("/dashboard");
+      });
     });
   });
-
 
   app.get("/api/users/:id", function(req, res) {
     db.User.findAll({
@@ -43,7 +47,8 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       },
-      include: [{
+      include: [
+        {
           model: db.Lists,
           required: false,
           where: {
@@ -58,29 +63,28 @@ module.exports = function (app) {
           }
         }
       ]
-    }).then(function (results) {
+    }).then(function(results) {
       // We have access to the todos as an argument inside of the callback function
       res.json(results);
     });
   });
 
-  app.post("/api/users", function (req, res) {
+  app.post("/api/users", function(req, res) {
     db.User.create({
-        GoogleID: req.body.GoogleID,
-        emailAddress: req.body.emailAddress,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        photo: req.body.photo
-      }).then(function (results) {
+      GoogleID: req.body.GoogleID,
+      emailAddress: req.body.emailAddress,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      photo: req.body.photo
+    })
+      .then(function(results) {
         // We have access to the new todo as an argument inside of the callback function
         res.json(results);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);
       });
   });
-
-
 };
