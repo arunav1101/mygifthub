@@ -9,6 +9,7 @@ const methodOverride = require("method-override");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const { formatDate, truncate } = require("./config/helpers");
 // Middleware
 app.use(
   express.urlencoded({
@@ -23,7 +24,10 @@ app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
-    helpers: {}
+    helpers: {
+      formatDate: formatDate,
+      truncate: truncate
+    }
   })
 );
 app.set("view engine", "handlebars");

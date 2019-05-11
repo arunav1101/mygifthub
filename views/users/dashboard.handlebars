@@ -25,13 +25,13 @@
             <input type="hidden" name="_method" value="DELETE">
             <a style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
             </a>
-            <button class="fas fa-trash text-danger float-right space">
+            <button class="fas fa-trash text-danger float-right space mt-2">
             </button>
+            <a class="fas fa-share float-right mr-1 text-secondary bg-transparent space" data-toggle="modal"
+              data-target="#myModal" data-listid="{{id}}" data-listname="{{ListName}}"
+              onclick=document.getElementById('ListId').value=event.target.dataset.listid;document.getElementById('ListName').value=event.target.dataset.listname>
+            </a>
           </form>
-          <a class="fas fa-share float-right mr-1 text-secondary bg-transparent space" data-toggle="modal"
-            data-target="#myModal" data-listid="{{id}}" data-listname="{{ListName}}"
-            onclick=document.getElementById('ListId').value=event.target.dataset.listid;document.getElementById('ListName').value=event.target.dataset.listname>
-          </a>
         </li>
       </ul>
       {{/each}}
