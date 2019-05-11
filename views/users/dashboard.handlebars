@@ -29,7 +29,6 @@
         <div class="card-body text-center">
           <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
             {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
-          {{!-- <p class="card-text">A Web Development Guy</p> --}}
         </div>
       </div>
     </div>
@@ -43,7 +42,7 @@
           <form>
             <input type="hidden" name="_method" value="DELETE">
             <a class="d-flex justify-content-start " style="color:#516F7F!important"
-              href="/api/listItems/{{id}}">{{ListName}}
+              href="/Dashboard">{{ListName}}
             </a>
             <button class="deleteBtn fas fa-trash text-danger float-right space"
               data-listId="{{id}}">
