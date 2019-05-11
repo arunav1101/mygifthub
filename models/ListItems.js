@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var ListItems = sequelize.define("ListItems", {
     title: {
       type: DataTypes.STRING,
@@ -29,16 +29,20 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
+    },
+    isClaimed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: '0',
+      len: [1]
     }
   });
 
-  ListItems.associate = function(models) {
+  ListItems.associate = function (models) {
     // We're saying that a ListItems should belong to an Author
     // A ListItems can't be created without an Author due to the foreign key constraint
     ListItems.belongsTo(models.Lists, {
-      foreignKey: {
-        allowNull: false
-      }
+      onDelete: 'cascade'
     });
   };
 
