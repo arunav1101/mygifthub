@@ -1,19 +1,30 @@
-{{#if lists}}
-
-  <h5>{{lists.ListName}}</h5>
-      {{#each lists.ListItems}}
-    <ul class="list-group">
-      <li class="list-group-item">
-        <span><img src="{{imgUrl}}" class="img-thumbnail"></span>
-        <a href="{{url}}" target="_blank">{{title}}</a>
-        <a href="/user/edit/:id">
-          <i class="fas fa-trash float-right text-danger"></i>
-        </a>
-        <a href="/api/listItems/edit/{{id}}">
-          <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
-        </a>
-         <span class="text-center float-right pr-2 text-primary">$ {{price}}</span>
-      </li>
-    </ul>
-    {{/each}}
-{{/if}}
+<div class="container">
+  {{#if list}}
+  <h5 class="text-center font-weight-bold my-2" style="color:#516F7F!important">{{creator.dataValues.firstName}}'s
+    {{list.ListName}}</h5>
+  {{#each list.ListItems}}
+  <ul class="list-group my-2">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          <span>
+            <img style="height:100px; width:100px" src="{{imgUrl}}" class="img-thumbnail">
+          </span>
+          <a href="{{url}}" target="_blank">{{title}}</a>
+        </div>
+        <div class="col-md-4">
+          <span class="text-center">
+            <p>{{notes}}</p>
+          </span>
+        </div>
+        <div class="col-md-4">
+          <a class="my-auto fas fa-gift float-right text-success" href="/user/edit/:id">
+          </a>
+          <a class="my-auto float-right pr-2 text-primary">$ {{price}}</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+  {{/each}}
+  {{/if}}
+</div>

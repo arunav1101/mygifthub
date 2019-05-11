@@ -1,6 +1,4 @@
 var db = require("../models");
-const axios = require("axios");
-const path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -27,15 +25,26 @@ module.exports = function(app) {
 
   // Load index page
   app.get("/client/list/:id", function(req, resp) {
-    const fullUrl = req.protocol + "://" + req.get("host");
-    axios
-      .get(`${fullUrl}/api/list/${req.params.id}`)
-      .then(res => {
+    db.Lists.findOne({
+      limit: 1,
+      where: {
+        id: req.params.id
+      },
+      include: [db.ListItems]
+    }).then(function(results) {
+      const list = results.dataValues;
+      db.User.findOne({
+        where: {
+          id: list.UserId
+        }
+      }).then(user => {
+        console.log(user);
         resp.render("clients/clientList", {
-          lists: res.data
+          list: list,
+          creator: user
         });
-      })
-      .catch(err => console.log(err));
+      });
+    });
   });
 
   //************* */ These are Kofi's:
