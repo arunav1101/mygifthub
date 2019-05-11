@@ -1,60 +1,63 @@
 <h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Registry Editor</h3>
 <hr>
 
-<div class = "container-fluid">
-<div class="row mb-3">
-  <div class="col-md-2">
-    {{#if user}}
-    <div class="card">
-      <img src="{{user.photo}}" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title text-center font-weight-bold" style="color:#516F7F!important">
-          {{user.firstName}} {{user.lastName}}</h5>
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-md-2">
+      {{#if user}}
+      <div class="card">
+        <img src="{{user.photo}}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title text-center font-weight-bold" style="color:#516F7F!important">
+            {{user.firstName}} {{user.lastName}}</h5>
+          <p class="card-text">A Web Developer</p>
+        </div>
       </div>
+      {{else}}
+      {{/if}}
     </div>
-    {{else}}
-    {{/if}}
+
+    <div class="col-md-5">
+      <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add New Items to Registry</h5>
+      <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Gift name...">
+
+        <label for="url">Gift URL</label>
+        <input type="url" class="form-control" name="url" placeholder="Gift URL...">
+
+        <label for="imgURL">imgURL</label>
+        <input type="url" class="form-control" name="imgURL" placeholder="Gift imgURL...">
+
+        <label for="price">Price $</label>
+        <input type="text" class="form-control" name="price" placeholder="Gift price...">
+
+        <label for="notes">Notes</label>
+        <textarea type="text" class="form-control" name="notes" placeholder="Gift Notes..."></textarea>
+        <button class="btn btn-md btn-primary mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
+      </form>
+    </div>
+
+    <div class="col-md-4 ">
+      <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
+      {{#each list}}
+      <ul id="itemListGroup" class="list-group">
+        <li class="list-group-item">
+          <form action="/api/listItems/{{id}}/{{ListId}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <a href="{{dataValues.url}}" target="_blank"> <i class="fas fa-gifts"></i> {{dataValues.title}}</a>
+
+            <button class="bg-transparent float-right">
+              <i class="fas fa-trash float-right text-danger"></i>
+            </button>
+
+            <a href="/api/listItems/edit/{{id}}">
+              <i class="fas fa-pencil-alt float-right mr-2 text-secondary"></i>
+            </a>
+          </form>
+        </li>
+      </ul>
+      {{/each}}
+    </div>
   </div>
-  <h1>{{list.id}}</h1>
-
-  <div class="col-md-5">
-    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Add New Items to Registry</h5>
-    <form class="form-group" action="/api/listItems/{{listId}}" method="POST">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" name="name" placeholder="Gift name...">
-
-      <label for="url">Gift URL</label>
-      <input type="url" class="form-control" name="url" placeholder="Gift URL...">
-
-      <label for="imgURL">imgURL</label>
-      <input type="url" class="form-control" name="imgURL" placeholder="Gift imgURL...">
-
-      <label for="price">Price $</label>
-      <input type="text" class="form-control" name="price" placeholder="Gift price...">
-
-      <label for="notes">Notes</label>
-      <textarea type="text" class="form-control" name="notes" placeholder="Gift Notes..."></textarea>
-      <button class="btn btn-md btn-primary mt-3 float-right"> <i class="fas fa-plus"></i> Add Item</button>
-    </form>
-  </div>
-
-  <div class="col-md-4 ">
-    <h5 class="text-center font-weight-bold" style="color:#516F7F!important">Registry Items</h5>
-    {{#each list}}
-    <ul id = "itemListGroup" class="list-group">
-      <li class="list-group-item">
-        <i class="fas fa-gifts float-left"></i>
-        <a class = "float-left space-between" href="{{dataValues.url}}" target="_blank">{{dataValues.title}}</a>
-        <a class = "float-left space-between">${{dataValues.price}}</a>
-        <a class = "float-right" href="/user/edit/:id">
-          <i class="fas fa-trash text-danger"></i>
-        </a>
-        <a class = "float-right" href="/api/listItems/edit/{{id}}">
-          <i class="fas fa-pencil-alt mr-2 text-secondary"></i>
-        </a>
-      </li>
-    </ul>
-    {{/each}}
-  </div>
-</div>
 </div>

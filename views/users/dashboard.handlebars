@@ -1,24 +1,5 @@
 <h3 class="text-center font-weight-bold mt-2" style="color:#516F7F!important">Dashboard</h3>
 <hr>
-<div class="modal" tabindex="-1" role="dialog" id="Mymodal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Sharing My Registry to</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn sharedModal btn-primary" data-dismiss="modal"><span
-            class="fas fa-share float-right">Share</span></button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="container-fluid">
   <div class="row mb-5">
@@ -29,6 +10,7 @@
         <div class="card-body text-center">
           <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
             {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
+          <p class="card-text">A Web Development Guy</p>
         </div>
       </div>
     </div>
@@ -37,20 +19,19 @@
     <div class="col-md-5">
       <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
       {{#each userRegistries}}
-      <ul id = "dashList" class="list-group space-between">
+      <ul id="dashList" class="list-group space-between">
         <li class="list-group-item">
-          <form>
-            {{!-- <input type="hidden" name="_method" value="DELETE"> --}}
-            <a class="d-flex justify-content-start " style="color:#516F7F!important"
-              href="/api/listItems/{{id}}">{{ListName}}
+          <form action="/api/list/{{id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <a style="color:#516F7F!important" href="/api/listItems/{{id}}">{{ListName}}
             </a>
-            <button class="deleteBtn fas fa-trash text-danger float-right space"
-              data-listId="{{id}}">
+            <button class="fas fa-trash text-danger float-right space">
             </button>
           </form>
-          <button class="sharedBtn fas fa-share float-right mr-1 text-secondary bg-transparent space"
-            data-listId="{{id}}">
-          </button>
+          <a class="fas fa-share float-right mr-1 text-secondary bg-transparent space" data-toggle="modal"
+            data-target="#myModal" data-listid="{{id}}" data-listname="{{ListName}}"
+            onclick=document.getElementById('ListId').value=event.target.dataset.listid;document.getElementById('ListName').value=event.target.dataset.listname>
+          </a>
         </li>
       </ul>
       {{/each}}
@@ -68,7 +49,8 @@
           <ul class="list-group">
             {{#each userPortfolio.Shareds}}
             <li class="list-group-item border-0 text-center p-0">
-              <a class="p-0" href="/client/list/{{ListId}}">List one</a>
+              <a class="p-0 text-dark" href="/client/list/{{ListId}}">
+                <i class="fas fa-gifts"></i> {{ListName}}</a>
             </li>
             {{/each}}
           </ul>
@@ -76,6 +58,30 @@
       </div>
       {{else}}
       {{/if}}
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sharing My Registry to:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="container">
+        <form action="/api/users/email" method="POST">
+          <label for="shareEmail">Email:</label>
+          <input type="text" class="form-control" name="shareEmail" placeholder="Email Address">
+          <input type="hidden" class="form-control" name="ListId" id="ListId">
+          <input type="hidden" class="form-control" name="ListName" id="ListName">
+          <button class="btn btn-primary btn-sm float-right my-2">
+            <i class="fas fa-share"></i> Share
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
