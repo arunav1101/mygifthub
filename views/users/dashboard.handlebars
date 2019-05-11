@@ -29,7 +29,6 @@
         <div class="card-body text-center">
           <h5 class="card-title font-weight-bold" style="color:#516F7F!important">
             {{userPortfolio.firstName}} {{userPortfolio.lastName}}</h5>
-          {{!-- <p class="card-text">A Web Development Guy</p> --}}
         </div>
       </div>
     </div>
@@ -43,14 +42,15 @@
           <form>
             <input type="hidden" name="_method" value="DELETE">
             <a class="d-flex justify-content-start " style="color:#516F7F!important"
-              href="/api/listItems/{{id}}">{{ListName}}
+              href="/Dashboard">{{ListName}}
             </a>
             <button class="bg-transparent float-right space">
               <i class="deleteBtn fas fa-trash text-danger" data-listId="{{id}}"></i>
             </button>
           </form>
-          <button class="sharedBtn  fas fa-share float-right mr-1 text-secondary bg-transparent"
-            data-listId="{{id}}"></button>
+          <button class="bg-transparent float-right space">
+            <i class="sharedBtn fas fa-share" data-listId="{{id}}"></i>
+          </button>
         </li>
       </ul>
       {{/each}}
