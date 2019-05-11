@@ -37,19 +37,19 @@
     <div class="col-md-5">
       <h5 class="text-center font-weight-bold" style="color:#516F7F!important">My Lists</h5>
       {{#each userRegistries}}
-      <ul class="list-group">
+      <ul id = "dashList" class="list-group space-between">
         <li class="list-group-item">
           <form>
-            <input type="hidden" name="_method" value="DELETE">
+            {{!-- <input type="hidden" name="_method" value="DELETE"> --}}
             <a class="d-flex justify-content-start " style="color:#516F7F!important"
-              href="/Dashboard">{{ListName}}
+              href="/api/listItems/{{id}}">{{ListName}}
             </a>
-            <button class="bg-transparent float-right space">
-              <i class="deleteBtn fas fa-trash text-danger" data-listId="{{id}}"></i>
+            <button class="deleteBtn fas fa-trash text-danger float-right space"
+              data-listId="{{id}}">
             </button>
           </form>
-          <button class="bg-transparent float-right space">
-            <i class="sharedBtn fas fa-share" data-listId="{{id}}"></i>
+          <button class="sharedBtn fas fa-share float-right mr-1 text-secondary bg-transparent space"
+            data-listId="{{id}}">
           </button>
         </li>
       </ul>

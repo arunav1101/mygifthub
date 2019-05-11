@@ -2,14 +2,18 @@ var dataStore = {
   userId: null,
   listId: null
 };
-$(document).ready(function () {
+$(document).ready(function() {
+  
+  setTimeout(freezeGiphy, 1500);
+  function freezeGiphy(){
+    $(".jumbotron").css("background-image", "url(../images/confetti_still.gif)")
+  }
 
   // Getting jQuery references to the new list name and category
   var nameInput = $("#ListName");
   var newListForm = $("#newList");
   var categorySelect = $("#category");
   var googleInput = $("#GoogleID");
-
 
   // Adding an event listener for when the form is submitted
   $(newListForm).on("submit", handleFormSubmit);
@@ -89,6 +93,7 @@ $(document).ready(function () {
         type: "delete",
       }).then(function (response) {
         console.log(response);
+        window.location.href = "/dashboard";
       });
     });
 })
