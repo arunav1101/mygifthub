@@ -61,15 +61,8 @@ module.exports = function(app) {
     });
   });
 
-  //************* */ These are Kofi's:
 
-  app.get("/shared_lists_all", function(req, res) {
-    res.render("shared_lists_all/shared_all");
-  });
 
-  app.get("/shared_lists_single", function(req, res) {
-    res.render("shared_lists_single/shared_single");
-  });
   app.get("/create_list", function(req, res) {
     res.render("forms/newList");
   });
@@ -77,8 +70,8 @@ module.exports = function(app) {
   app.get("/new_item", function(req, res) {
     res.render("forms/newItem");
   });
-  //************** */
-  // Render 404 page for any unmatched routes
+
+  // // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
